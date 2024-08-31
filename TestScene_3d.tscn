@@ -31,6 +31,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_sb0ac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+jump_velocity = 4.5
+speed = 5.0
+fall_acceleration = 75
+mouse_sensitivity = 0.01
 
 [node name="Wall" parent="." instance=ExtResource("1_fjdu6")]
 transform = Transform3D(0.795717, -0.605669, 0, 0.605669, 0.795717, 0, 0, 0, 1, 0.804, 0.5, -5.519)
