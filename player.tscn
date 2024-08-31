@@ -1,6 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dutgh7ygmpwtc"]
+[gd_scene load_steps=7 format=3 uid="uid://dutgh7ygmpwtc"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_lukb3"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lukb3"]
+
+[sub_resource type="Curve" id="Curve_lyvwj"]
+_data = [Vector2(0.00353357, 0), 0.0, 0.0, 0, 0, Vector2(0.469965, 0.451429), 0.0, 0.0, 0, 0, Vector2(0.770318, 0.468571), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_w0o3t"]
+_data = [Vector2(0.00353357, 0.982857), 0.0, 0.0, 0, 0, Vector2(0.477032, 0.188571), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hrgk7"]
 
@@ -10,8 +18,14 @@
 
 [node name="Player" type="CharacterBody3D"]
 physics_interpolation_mode = 1
+safe_margin = 0.06
 script = ExtResource("1_lukb3")
-turn_speed = 5.0
+speed = 10.0
+turn_speed = 2.0
+acceleration_curve = SubResource("Curve_lyvwj")
+slowdown_curve = SubResource("Curve_w0o3t")
+acceleration_time = 2.0
+slowdown_time = 2.0
 rotation_weight = 5.0
 rotation_speed_mod = 0.5
 

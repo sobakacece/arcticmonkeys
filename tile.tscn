@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://oji014s2lfv0"]
+[gd_scene load_steps=5 format=3 uid="uid://oji014s2lfv0"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b7eyyvdtegfd8" path="res://assets/physmaterials/snow.tres" id="1_eo2oy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_562e1"]
 size = Vector3(60, 2, 60)
@@ -10,6 +12,7 @@ albedo_color = Color(0.766235, 0.933555, 1, 1)
 
 [node name="Tile" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+physics_material_override = ExtResource("1_eo2oy")
 
 [node name="Tile_collision" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_562e1")
