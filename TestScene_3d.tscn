@@ -1,10 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq64i63y5oim0"]
+[gd_scene load_steps=9 format=3 uid="uid://cq64i63y5oim0"]
 
+[ext_resource type="PackedScene" uid="uid://d3tbnpad4iwjj" path="res://Wall.tscn" id="1_fjdu6"]
 [ext_resource type="PackedScene" uid="uid://oji014s2lfv0" path="res://tile.tscn" id="1_hwb6y"]
 [ext_resource type="PackedScene" uid="uid://dutgh7ygmpwtc" path="res://player.tscn" id="2_sb0ac"]
+[ext_resource type="Texture2D" uid="uid://cn46ahj63m60d" path="res://assets/textures/sky.jpg" id="4_40w4v"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyvpb"]
+panorama = ExtResource("4_40w4v")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_3bx60"]
+sky_material = SubResource("PanoramaSkyMaterial_jyvpb")
+
+[sub_resource type="Environment" id="Environment_dpgv3"]
+background_mode = 2
+sky = SubResource("Sky_3bx60")
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_8xmqt"]
+auto_exposure_enabled = true
+auto_exposure_scale = 0.1
+auto_exposure_max_exposure_value = 3.67
 
 [node name="Root" type="Node3D"]
 
+[node name="Wall2" parent="." instance=ExtResource("1_fjdu6")]
+transform = Transform3D(-0.622699, 0.77538, -0.105033, 0.78187, 0.621817, -0.0449847, 0.0304311, -0.110134, -0.993451, 4.465, 0.5, -5.616)
+
 [node name="Tile" parent="." instance=ExtResource("1_hwb6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_sb0ac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Wall" parent="." instance=ExtResource("1_fjdu6")]
+transform = Transform3D(0.795717, -0.605669, 0, 0.605669, 0.795717, 0, 0, 0, 1, 0.804, 0.5, -5.519)
+
+[node name="Wall3" parent="." instance=ExtResource("1_fjdu6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 0.802612, -5.519)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dpgv3")
+camera_attributes = SubResource("CameraAttributesPhysical_8xmqt")
