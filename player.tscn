@@ -11,13 +11,9 @@
 [node name="Player" type="CharacterBody3D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_lukb3")
-jump_velocity = null
-speed = null
-fall_acceleration = null
 turn_speed = 5.0
 rotation_weight = 5.0
 rotation_speed_mod = 0.5
-mouse_sensitivity = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_hrgk7")
