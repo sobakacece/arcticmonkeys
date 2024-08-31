@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cq64i63y5oim0"]
+[gd_scene load_steps=3 format=3 uid="uid://cq64i63y5oim0"]
+
+[ext_resource type="PackedScene" uid="uid://oji014s2lfv0" path="res://tile.tscn" id="1_hwb6y"]
+[ext_resource type="PackedScene" uid="uid://dutgh7ygmpwtc" path="res://player.tscn" id="2_sb0ac"]
 
 [node name="Root" type="Node3D"]
+
+[node name="Tile" parent="." instance=ExtResource("1_hwb6y")]
+
+[node name="Player" parent="." instance=ExtResource("2_sb0ac")]
