@@ -27,6 +27,10 @@ project/assembly_name="ArcticMonkeys"
 
 enabled=PackedStringArray("res://addons/jigglebones/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
+[global_group]
+
+PlayerGroup=""
+
 [input]
 
 move_left={

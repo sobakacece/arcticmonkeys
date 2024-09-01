@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://drcprtrfvcbxh"]
+
+[ext_resource type="PackedScene" uid="uid://b81bx3oi8ewbs" path="res://assets/3D/peng.tscn" id="1_e5e7n"]
+[ext_resource type="Script" path="res://scripts/peng__on_map.gd" id="2_wx6dv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_08j0s"]
+height = 0.881893
+radius = 0.679935
+
+[node name="Peng_on_map" type="Node3D"]
+
+[node name="Peng" parent="." instance=ExtResource("1_e5e7n")]
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("2_wx6dv")
+parent = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468938, 0)
+shape = SubResource("CylinderShape3D_08j0s")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
