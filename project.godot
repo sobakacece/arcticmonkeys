@@ -23,6 +23,10 @@ GlobalRefs="*res://scripts/global_refs.gd"
 
 project/assembly_name="ArcticMonkeys"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/jigglebones/plugin.cfg")
+
 [input]
 
 move_left={
