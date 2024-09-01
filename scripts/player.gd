@@ -5,7 +5,7 @@ class_name Player
 @export_category("Movement")
 @export var jump_velocity = 4.5
 @export var fall_acceleration = 75
-@export var turn_speed : float = 1 
+@export var turn_speed : float = 1
 @export var turn_curve : Curve
 
 @export_category("Acceleration")
@@ -13,6 +13,7 @@ class_name Player
 @export var slowdown_curve : Curve
 @export var acceleration_time : float = 0.2
 @export var max_speed = 50
+@export var dash_boost : float
 #@export var slowdown_time : float = 0.2
 #var acceleration = 0.0
 #var deacceleration = 0.0
@@ -37,11 +38,6 @@ var visuals
 
 var time_elapsed = 0.0
 
-func _ease_velocity(value: float, curve: Curve, delta: float, total_time: float) -> float:
-	var factor = min(abs(value) / max_speed, 1.0) # Normalized factor for speed
-	var time_progress = factor * total_time # Map it to the curve's time domain
-	return value * curve.sample(time_progress)
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	spring_arm = find_child("SpringArm")
@@ -58,6 +54,7 @@ func _input(event):
 		target_camera_rotation.x -= event.relative.y * mouse_sensitivity * rotation_speed_mod
 		target_camera_rotation.x = clamp(target_camera_rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		#print(target_rotation.x);
+		
 
 		
 func _process(delta: float) -> void:
@@ -77,8 +74,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	direction = (Basis(spring_arm.transform.basis.x, Vector3.UP, spring_arm.transform.basis.z).orthonormalized() * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		var target_velocity_x = direction.x * max_speed
-		var target_velocity_z = direction.z * max_speed
+		var target_velocity_x = direction.x * calculate_max_speed()
+		var target_velocity_z = direction.z * calculate_max_speed()
 		time_elapsed+=delta
 		time_elapsed = clamp(time_elapsed, 0, acceleration_time)
 		var normalized_time = remap(time_elapsed, 0, acceleration_time, 0, 1)
@@ -87,7 +84,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = lerp(velocity.z, target_velocity_z, acceleration_curve.sample(normalized_time) * delta)
 	else:
 		time_elapsed-=delta
-		
 		velocity.x = lerp(velocity.x, 0.0, -slowdown_curve.sample(0) * delta)
 		velocity.z = lerp(velocity.z, 0.0, -slowdown_curve.sample(0) * delta)
 	
@@ -115,3 +111,11 @@ func rotate_visuals(delta : float):
 func on_stop():
 	return
 	#print("stopped")
+	
+func calculate_max_speed() -> float:
+	var tmp_speed = 0.0
+	if Input.is_action_pressed("dash"):
+		return max_speed + dash_boost
+	else: 
+		return max_speed
+		

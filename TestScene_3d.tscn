@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq64i63y5oim0"]
+[gd_scene load_steps=12 format=3 uid="uid://cq64i63y5oim0"]
 
 [ext_resource type="PackedScene" uid="uid://d3tbnpad4iwjj" path="res://Wall.tscn" id="1_fjdu6"]
 [ext_resource type="PackedScene" uid="uid://oji014s2lfv0" path="res://tile.tscn" id="1_hwb6y"]
@@ -22,10 +22,17 @@ auto_exposure_enabled = true
 auto_exposure_scale = 0.1
 auto_exposure_max_exposure_value = 3.67
 
+[sub_resource type="SphereMesh" id="SphereMesh_e0nw5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7a8io"]
+
 [node name="Root" type="Node3D"]
 
 [node name="Wall2" parent="." instance=ExtResource("1_fjdu6")]
 transform = Transform3D(-0.622699, 0.77538, -0.105033, 0.78187, 0.621817, -0.0449847, 0.0304311, -0.110134, -0.993451, 4.465, 0.5, -5.616)
+
+[node name="Tile2" parent="." instance=ExtResource("1_hwb6y")]
+transform = Transform3D(1, 0, 0, 0, 0.976867, 1.06924, 0, -0.213849, 4.88433, 47.4548, 10.3088, 106.844)
 
 [node name="Tile" parent="." instance=ExtResource("1_hwb6y")]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 3.61752, 2.09396, 3.83329)
@@ -33,7 +40,6 @@ transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 3.61752, 2.09396, 3.83329)
 [node name="Player" parent="." instance=ExtResource("2_sb0ac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.9649, 0)
 turn_speed = 1.0
-slowdown_time = 0.2
 
 [node name="Wall" parent="." instance=ExtResource("1_fjdu6")]
 transform = Transform3D(0.795717, -0.605669, 0, 0.605669, 0.795717, 0, 0, 0, 1, 0.804, 0.5, -5.519)
@@ -113,3 +119,14 @@ radius = 5.0
 [node name="CSGSphere3D16" type="CSGSphere3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5383, 6.1153, 54.4268)
 radius = 5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 70, 36.5161, -12.5885, -17.7964)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_e0nw5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_7a8io")
