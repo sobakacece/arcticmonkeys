@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://c7gn1gydxsge4"]
 
-[ext_resource type="PackedScene" uid="uid://le5qdihl0bka" path="res://assets/3D/Bags.fbx" id="1_hapji"]
+[ext_resource type="PackedScene" uid="uid://le5qdihl0bka" path="res://assets/3D/FBXs/Bags.fbx" id="1_hapji"]
 [ext_resource type="Material" uid="uid://wv7bpfpxbjp2" path="res://assets/3D/Materials/grey.tres" id="2_ebdjg"]
 [ext_resource type="Material" uid="uid://dicakrcndt4po" path="res://assets/3D/Materials/black.tres" id="3_t7147"]
 [ext_resource type="Material" uid="uid://wq7yriegjxhe" path="res://assets/3D/Materials/yellow.tres" id="4_tavmj"]
@@ -228,7 +228,6 @@ shadow_mesh = SubResource("ArrayMesh_gg2j0")
 [node name="Bags" instance=ExtResource("1_hapji")]
 
 [node name="Bag_1_Mesh" parent="." index="0"]
-visible = false
 mesh = SubResource("ArrayMesh_gcodd")
 
 [node name="Bag_2_Mesh" parent="." index="1"]
@@ -236,4 +235,5 @@ visible = false
 mesh = SubResource("ArrayMesh_7x5h2")
 
 [node name="Bag_3_Mesh" parent="." index="2"]
+visible = false
 mesh = SubResource("ArrayMesh_652ti")

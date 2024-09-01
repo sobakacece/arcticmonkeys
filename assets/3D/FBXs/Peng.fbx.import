@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://le5qdihl0bka"
-path="res://.godot/imported/Bags.fbx-3ba1d080c129b4b20b28a27312840a7d.scn"
+uid="uid://dspx4vyror1oo"
+path="res://.godot/imported/Peng.fbx-e33bd2bad20ab54b03936959709d55e8.scn"
 
 [deps]
 
-source_file="res://assets/3D/Bags.fbx"
-dest_files=["res://.godot/imported/Bags.fbx-3ba1d080c129b4b20b28a27312840a7d.scn"]
+source_file="res://assets/3D/FBXs/Peng.fbx"
+dest_files=["res://.godot/imported/Peng.fbx-e33bd2bad20ab54b03936959709d55e8.scn"]
 
 [params]
 

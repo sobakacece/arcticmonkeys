@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d312bhn4kep8k"]
+
+[ext_resource type="Script" path="res://scripts/SIMPLE_alighment.gd" id="1_4gnsg"]
+
+[node name="Aligner" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19655, 1.34887, 0.239746)
+visible = false
+size = Vector3(0.527222, 2.67664, 0.520508)
+script = ExtResource("1_4gnsg")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19655, -0.34887, -0.239746)
+target_position = Vector3(0, -2, 0)
