@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bqx666vmubd6c"]
+[gd_scene load_steps=11 format=4 uid="uid://bqx666vmubd6c"]
 
 [ext_resource type="PackedScene" uid="uid://o31svi1pn3qt" path="res://assets/3D/FBXs/Char.fbx" id="1_hedrw"]
 [ext_resource type="Material" uid="uid://dhxfsosrru1o2" path="res://assets/3D/Materials/light_black.tres" id="2_sc6wv"]
@@ -7,8 +7,7 @@
 [ext_resource type="Material" uid="uid://wv7bpfpxbjp2" path="res://assets/3D/Materials/grey.tres" id="5_q3ea8"]
 [ext_resource type="Script" path="res://addons/jigglebones/jigglebone.gd" id="6_n04bj"]
 [ext_resource type="PackedScene" uid="uid://c7gn1gydxsge4" path="res://assets/3D/bags.tscn" id="7_ouufw"]
-[ext_resource type="PackedScene" uid="uid://b81bx3oi8ewbs" path="res://assets/peng.tscn" id="8_ih67x"]
-[ext_resource type="PackedScene" uid="uid://d312bhn4kep8k" path="res://aligner.tscn" id="9_3ec4f"]
+[ext_resource type="PackedScene" uid="uid://cgctj8nul8mba" path="res://aligner.tscn" id="9_3ec4f"]
 
 [sub_resource type="GDScript" id="GDScript_sba77"]
 script/source = "extends Node3D
@@ -132,7 +131,7 @@ bones/8/rotation = Quaternion(-1.26218e-29, -5.96243e-09, -1.42109e-14, 1)
 mesh = SubResource("ArrayMesh_3n8xq")
 
 [node name="Jigglebone" type="Node3D" parent="Char_Armature/Skeleton3D" index="1"]
-transform = Transform3D(1.74846e-05, -70.7107, -70.7107, -7.35137e-06, -70.7107, 70.7107, -100, -9.27259e-06, -1.24741e-05, -0.394666, 0.452126, 1.22703e-07)
+transform = Transform3D(5.56367e-06, -70.7107, -70.7107, -4.37114e-06, -70.7107, 70.7107, -100, -9.27261e-06, -6.51365e-06, -0.394664, 0.452126, 1.22703e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Arm.L"
@@ -142,7 +141,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone2" type="Node3D" parent="Char_Armature/Skeleton3D" index="2"]
-transform = Transform3D(-1.74846e-05, 70.7107, 70.7107, 4.37114e-06, -70.7107, 70.7107, 100, 1.54543e-05, 9.27258e-06, 0.394665, 0.452126, 2.4817e-07)
+transform = Transform3D(-1.74846e-05, 70.7107, 70.7107, 4.37114e-06, -70.7107, 70.7107, 100, 1.54543e-05, 9.27262e-06, 0.394665, 0.452126, 2.48169e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Arm.R"
@@ -152,7 +151,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone3" type="Node3D" parent="Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(-5.56363e-06, 38.2683, 92.3879, -7.54979e-06, -92.388, 38.2683, 100, -1.19148e-06, 2.55993e-06, 0.768419, 0.0783712, 3.29856e-07)
+transform = Transform3D(-1.74846e-05, 38.2683, 92.388, 4.37114e-06, -92.388, 38.2683, 100, 1.07295e-05, 1.44809e-05, 0.768419, 0.0783712, 3.29856e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Hand.R"
@@ -162,7 +161,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone4" type="Node3D" parent="Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(1.74846e-05, -38.2684, -92.3879, -4.37114e-06, -92.3879, 38.2684, -100, -2.65265e-06, -1.78264e-05, -0.76842, 0.0783712, 7.36909e-08)
+transform = Transform3D(-6.35726e-06, -38.2683, -92.3879, -4.37114e-06, -92.3879, 38.2683, -100, 9.26827e-06, 3.0352e-06, -0.76842, 0.078371, 1.05004e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Hand.L"
@@ -172,7 +171,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone5" type="Node3D" parent="Char_Armature/Skeleton3D" index="5"]
-transform = Transform3D(-1.82782e-05, -5.95206e-06, 100, -0.0480368, 100, 1.19209e-05, -100, -0.0480397, -2.72189e-05, -3.5898e-07, 1.15612, -1)
+transform = Transform3D(-1.82782e-05, -5.95206e-06, 100, -0.0480368, 100, 1.19209e-05, -100, -0.0480397, -2.72189e-05, -3.5898e-07, 1.15613, -1)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Body"
@@ -197,29 +196,79 @@ bone_idx = 2
 [node name="Bags" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D" index="0" instance=ExtResource("7_ouufw")]
 transform = Transform3D(-4.37114e-10, 5.96046e-10, -0.01, 5.96046e-10, 0.01, 5.96047e-10, 0.01, -5.96047e-10, -4.37118e-10, -0.00133056, 0.00274324, -4.70955e-10)
 
-[node name="Peng" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="3" instance=ExtResource("8_ih67x")]
+[node name="Peng" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="3"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-0.788642, 0.129747, 0.0347869, 0.129183, 0.789351, -0.0154167, -0.0368242, -0.00958044, -0.799094, -0.0413629, -0.391476, 0.439805)
+script = null
 
-[node name="Peng2" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="4" instance=ExtResource("8_ih67x")]
+[node name="Peng2" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="4"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-0.462088, -0.0443974, 0.58907, 0.00145611, 0.747791, 0.0575022, -0.590739, 0.0365718, -0.460641, -0.124702, -0.0257295, 0.12426)
+script = null
 
-[node name="Peng3" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="5" instance=ExtResource("8_ih67x")]
+[node name="Peng3" parent="Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="5"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.689857, 0.0543693, -0.289207, 0.00675623, 0.733967, 0.154098, 0.294195, -0.144346, 0.674621, 0.130274, 0.0364339, 0.0691185)
+script = null
 
 [node name="Hand_L_BoneAttachment3D" type="BoneAttachment3D" parent="Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(0, -0.382684, -0.923879, 1, 0, 0, 0, -0.923879, 0.382684, -0.0076842, -2.46441e-09, 0.00878371)
+transform = Transform3D(-2.38419e-07, -0.382683, -0.923879, 1, -1.19209e-07, -2.08616e-07, 0, -0.923879, 0.382683, -0.0076842, -2.56942e-09, 0.00878371)
 bone_name = "Hand.L"
 bone_idx = 5
 
-[node name="Peng5" parent="Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0" instance=ExtResource("8_ih67x")]
+[node name="Peng5" parent="Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-0.000986747, 0.00568025, -0.00479701, 0.00704386, 0.00226279, 0.00123049, 0.00237921, -0.00434336, -0.00563247, -0.00153357, 0.00123528, -0.000152905)
+script = null
 
 [node name="Hand_R_BoneAttachment3D2" type="BoneAttachment3D" parent="Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(1.19209e-07, 0.382683, 0.92388, -1, 1.19209e-07, 1.19209e-07, -1.19209e-07, -0.92388, 0.382683, 0.0076842, -2.33896e-09, 0.00878371)
+transform = Transform3D(0, 0.382683, 0.92388, -1, 0, 0, 0, -0.92388, 0.382683, 0.0076842, -2.33896e-09, 0.00878371)
 bone_name = "Hand.R"
 bone_idx = 8
 
-[node name="Peng4" parent="Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0" instance=ExtResource("8_ih67x")]
+[node name="Peng4" parent="Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.00140037, -0.00736391, 0.000248696, 0.00619924, 0.00104072, -0.004091, 0.00398226, 0.000969418, 0.00628107, 0.00254269, 0.00165481, -0.00145412)
+script = null
 
 [node name="Aligner" parent="." index="1" instance=ExtResource("9_3ec4f")]

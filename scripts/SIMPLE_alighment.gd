@@ -1,12 +1,12 @@
 extends Node3D
-
+var normal
 # Called every physics frame.
 func _physics_process(delta: float) -> void:
 	# Ensure the parent exists and the RayCast3D has a collision
 	if get_parent() and $RayCast3D.is_colliding():
-		var n = $RayCast3D.get_collision_normal()
+		normal = $RayCast3D.get_collision_normal()
 		var parent_transform = get_parent().global_transform
-		var xform = align_with_y(parent_transform, n)
+		var xform = align_with_y(parent_transform, normal)
 		get_parent().global_transform = parent_transform.interpolate_with(xform, 0.2)
 
 func align_with_y(xform: Transform3D, new_y: Vector3) -> Transform3D:

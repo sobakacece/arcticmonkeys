@@ -7,13 +7,18 @@ class_name Player
 @export var fall_acceleration = 75
 @export var turn_speed : float = 1
 @export var turn_curve : Curve
+@export var mass = 10
 
 @export_category("Acceleration")
 @export var acceleration_curve : Curve
 @export var slowdown_curve : Curve
 @export var acceleration_time : float = 0.2
 @export var max_speed = 50
+
+@export_category("Dash")
 @export var dash_boost : float
+@export var dash_acceleration: float
+@export var dash_boost_time: float
 #@export var slowdown_time : float = 0.2
 #var acceleration = 0.0
 #var deacceleration = 0.0
@@ -32,10 +37,14 @@ var smooth_rotation: Vector3
 @export_category("General")
 @export var mouse_sensitivity = 0.01
 
+var slope_const = 2
 #nodes
 var spring_arm
 var visuals
+var dash_timer : SceneTreeTimer
 
+#dynamic_values
+var current_acceleration_boost
 var time_elapsed = 0.0
 
 func _ready():
@@ -62,30 +71,34 @@ func _process(delta: float) -> void:
 	spring_arm.rotation = smooth_rotation
 	spring_arm.position = position
 
+func slope_process(delta : float):
+	return Vector3(get_normal().normalized().x, 0, get_normal().normalized().z) * delta * slope_const
+	#return Vector3(get_normal().normalized()) * delta * slope_const
+	
+func get_normal():
+	if $RayCast3D.is_colliding():
+		return $RayCast3D.get_collision_normal() 
+	else:
+		return Vector3.UP
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-
+		velocity += get_gravity() * delta * mass
+		#print("NOT ON FLOOR")
+	#else:
+		#var normal = get_normal().normalized()
+		##var temp_rotation = Quaternion(get_normal(), Vector3.UP).normalized()
+		#var gravity_vector = get_gravity().project(normal)
+		#velocity += slope_process(delta) - gravity_vector  * delta
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
-
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	direction = (Basis(spring_arm.transform.basis.x, Vector3.UP, spring_arm.transform.basis.z).orthonormalized() * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		var target_velocity_x = direction.x * calculate_max_speed()
-		var target_velocity_z = direction.z * calculate_max_speed()
-		time_elapsed+=delta
-		time_elapsed = clamp(time_elapsed, 0, acceleration_time)
-		var normalized_time = remap(time_elapsed, 0, acceleration_time, 0, 1)
-		print(normalized_time)
-		velocity.x = lerp(velocity.x, target_velocity_x, acceleration_curve.sample(normalized_time) * delta)
-		velocity.z = lerp(velocity.z, target_velocity_z, acceleration_curve.sample(normalized_time) * delta)
-	else:
-		time_elapsed-=delta
-		velocity.x = lerp(velocity.x, 0.0, -slowdown_curve.sample(0) * delta)
-		velocity.z = lerp(velocity.z, 0.0, -slowdown_curve.sample(0) * delta)
+	
+	update_velocity_input(delta)
 	
 	move_and_slide()
 	
@@ -95,7 +108,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		on_stop()
 		#time_elapsed = 0.0	
-
+		
+func update_velocity_input(delta : float):
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	direction = (Basis(spring_arm.transform.basis.x, Vector3.UP, spring_arm.transform.basis.z).orthonormalized() * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction += get_normal()
+	#print(direction)
+	if direction:
+		var target_velocity_x = direction.x * get_max_speed()
+		var target_velocity_z = direction.z * get_max_speed()
+		time_elapsed+=delta
+		time_elapsed = clamp(time_elapsed, 0, acceleration_time)
+		var normalized_time = remap(time_elapsed, 0, acceleration_time, 0, 1)
+		#print(normalized_time)
+		velocity.x = lerp(velocity.x, target_velocity_x, acceleration_curve.sample(normalized_time) * delta * get_acceleration_boost())
+		velocity.z = lerp(velocity.z, target_velocity_z, acceleration_curve.sample(normalized_time) * delta * get_acceleration_boost())
+	else:
+		time_elapsed -= delta
+		time_elapsed = clamp(time_elapsed, 0, acceleration_time)
+		var normalized_time = remap(time_elapsed, 0, acceleration_time, 0, 1)
+		velocity.x = lerp(velocity.x, 0.0, -slowdown_curve.sample(normalized_time) * delta) 
+		velocity.z = lerp(velocity.z, 0.0, -slowdown_curve.sample(normalized_time) * delta)
+		
 func rotate_visuals(delta : float):
 	var current_rot = visuals.rotation_degrees
 	var current_quat = Quaternion(Basis.from_euler(visuals.rotation))
@@ -111,11 +145,30 @@ func rotate_visuals(delta : float):
 func on_stop():
 	return
 	#print("stopped")
+
+func get_dash_boost() -> float:
+	if Input.is_action_just_pressed("dash") && !dash_timer:
+			dash_timer = get_tree().create_timer(dash_boost_time, false, true)
+			dash_timer.timeout.connect(func(): dash_timer = null)
 	
-func calculate_max_speed() -> float:
-	var tmp_speed = 0.0
+	var dash_mod : float
+	if dash_timer:
+		dash_mod =  dash_timer.time_left / dash_boost_time
+	else:
+		dash_mod = 0
+	#print(dash_boost)
+	return dash_boost * dash_mod
+
+func get_max_speed() -> float:
+	#print(dash_timer.get_paath())
 	if Input.is_action_pressed("dash"):
-		return max_speed + dash_boost
-	else: 
+		#print(get_dash_boost())
+		return max_speed + get_dash_boost()
+	else:
 		return max_speed
 		
+func get_acceleration_boost() -> float:
+	if Input.is_action_pressed("dash"):
+		return dash_acceleration
+	else: 
+		return 1
