@@ -42,20 +42,21 @@ textures = [[ExtResource("4_40w4v")], [null]]
 
 [node name="Player" parent="." instance=ExtResource("2_sb0ac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9523, 30.9025, 78.0679)
+collision_layer = 3
 floor_max_angle = 3.14159
 mass = 1
 
 [node name="Jigglebone" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="1"]
-transform = Transform3D(100, 0.00714108, 0.00296898, 0.002955, -70.7125, 70.7089, 0.00715057, -70.7089, -70.7125, 74.9524, 31.1546, 77.6733)
+transform = Transform3D(100, 0.00714704, 0.00297196, 0.002955, -70.7131, 70.7083, 0.00715653, -70.7083, -70.7131, 74.9524, 31.1546, 77.6733)
 
 [node name="Jigglebone2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="2"]
-transform = Transform3D(-100, -0.00676579, -0.00285252, 0.00276109, -70.71, 70.7114, -0.00680486, 70.7114, 70.71, 74.9522, 31.1546, 78.4626)
+transform = Transform3D(-100, -0.00729031, -0.00278696, 0.00317534, -70.7095, 70.7118, -0.00712673, 70.7118, 70.7096, 74.9522, 31.1546, 78.4626)
 
 [node name="Jigglebone3" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(-100, -0.00163365, -0.00454847, -0.000234047, -92.3869, 38.2709, -0.00481407, 38.2709, 92.3869, 74.9523, 30.7809, 78.8364)
+transform = Transform3D(-100, -0.00205088, -0.00461106, 0.000132521, -92.3865, 38.2718, -0.00504057, 38.2718, 92.3865, 74.9523, 30.7809, 78.8364)
 
 [node name="Jigglebone4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(100, 0.00163749, 0.00470679, -0.000296434, -92.3877, 38.2688, 0.00498096, -38.2688, -92.3877, 74.9523, 30.7809, 77.2995)
+transform = Transform3D(100, 0.0017865, 0.00469785, -0.000150403, -92.3889, 38.266, 0.00502865, -38.266, -92.3889, 74.9523, 30.7809, 77.2995)
 
 [node name="Jigglebone5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="5"]
 transform = Transform3D(100, -4.33126e-05, 0.00283917, 3.43719e-05, 100, 5.96034e-06, -0.00283917, -2.98024e-06, 100, 75.9523, 31.8586, 78.068)
@@ -79,13 +80,13 @@ visible = false
 visible = false
 
 [node name="Hand_L_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(4.95911e-05, -0.382688, -0.923877, 1, 1.63317e-05, 4.68493e-05, -2.92063e-06, -0.923877, 0.382688, -0.0076841, 3.74337e-07, 0.00878362)
+transform = Transform3D(5.00679e-05, -0.38266, -0.923889, 1, 1.78218e-05, 4.67598e-05, -1.46031e-06, -0.923889, 0.38266, -0.00768407, 3.74647e-07, 0.00878359)
 
 [node name="Peng5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0"]
 visible = false
 
 [node name="Hand_R_BoneAttachment3D2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(-4.79221e-05, 0.382709, 0.923869, -1, -1.62125e-05, -4.52995e-05, -2.38419e-06, -0.923869, 0.382709, 0.00768424, -3.60502e-07, 0.00878375)
+transform = Transform3D(-5.01871e-05, 0.382718, 0.923865, -1, -2.03848e-05, -4.59254e-05, 1.2815e-06, -0.923865, 0.382718, 0.00768426, -3.79092e-07, 0.00878377)
 
 [node name="Peng4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0"]
 visible = false
