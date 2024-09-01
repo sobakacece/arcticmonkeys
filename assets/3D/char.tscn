@@ -108,6 +108,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="Char" instance=ExtResource("1_hedrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 
 [node name="Char_Armature" parent="." index="0"]
 transform = Transform3D(100, 1.74846e-05, 7.64274e-13, 0, -4.37114e-06, 100, 1.74846e-05, -100, -4.37114e-06, 0, 0, 0)
@@ -131,7 +132,7 @@ bones/8/rotation = Quaternion(-1.26218e-29, -5.96243e-09, -1.42109e-14, 1)
 mesh = SubResource("ArrayMesh_3n8xq")
 
 [node name="Jigglebone" type="Node3D" parent="Char_Armature/Skeleton3D" index="1"]
-transform = Transform3D(1.74846e-05, -70.7107, -70.7107, -7.35137e-06, -70.7107, 70.7107, -100, -9.27259e-06, -1.24741e-05, -0.394666, 0.252126, 1.22703e-07)
+transform = Transform3D(1.74846e-05, -70.7107, -70.7107, -7.35137e-06, -70.7107, 70.7107, -100, -9.27259e-06, -1.24741e-05, -0.394666, 0.452126, 1.22703e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Arm.L"
@@ -141,7 +142,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone2" type="Node3D" parent="Char_Armature/Skeleton3D" index="2"]
-transform = Transform3D(-2.94055e-05, 70.7107, 70.7107, 4.37114e-06, -70.7107, 70.7107, 100, 1.54543e-05, 1.82133e-05, 0.394665, 0.252126, 2.48169e-07)
+transform = Transform3D(-1.74846e-05, 70.7107, 70.7107, 4.37114e-06, -70.7107, 70.7107, 100, 1.54543e-05, 9.27258e-06, 0.394665, 0.452126, 2.4817e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Arm.R"
@@ -151,7 +152,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone3" type="Node3D" parent="Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(-4.13264e-05, 38.2684, 92.3879, 4.37114e-06, -92.3879, 38.2683, 100, 2.26504e-05, 3.23622e-05, 0.76842, -0.121629, 3.29856e-07)
+transform = Transform3D(-5.56363e-06, 38.2683, 92.3879, -7.54979e-06, -92.388, 38.2683, 100, -1.19148e-06, 2.55993e-06, 0.768419, 0.0783712, 3.29856e-07)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Hand.R"
@@ -161,7 +162,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone4" type="Node3D" parent="Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(1.74846e-05, -38.2684, -92.3879, -7.35137e-06, -92.3879, 38.2684, -100, -2.65265e-06, -1.48462e-05, -0.76842, -0.121629, 7.36909e-08)
+transform = Transform3D(1.74846e-05, -38.2684, -92.3879, -4.37114e-06, -92.3879, 38.2684, -100, -2.65265e-06, -1.78264e-05, -0.76842, 0.0783712, 7.36909e-08)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Hand.L"
@@ -171,7 +172,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="Jigglebone5" type="Node3D" parent="Char_Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.0514571, -1.19223e-05, 100, 0.00787238, 100, 2.38396e-05, -100, 0.00787536, -0.051472, -3.5898e-07, 0.956128, -1)
+transform = Transform3D(-1.82782e-05, -5.95206e-06, 100, -0.0480368, 100, 1.19209e-05, -100, -0.0480397, -2.72189e-05, -3.5898e-07, 1.15612, -1)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Body"
@@ -180,7 +181,7 @@ damping = 8.0
 forward_axis = 0
 
 [node name="Jigglebone6" type="Node3D" parent="Char_Armature/Skeleton3D" index="6"]
-transform = Transform3D(-0.0514571, 0.00126064, 100, 0.00589351, 100, -0.0012517, -100, 0.00588457, -0.051463, -1.14715e-07, 2.4847, 0.472189)
+transform = Transform3D(-3.01992e-05, 7.42824e-09, 100, -0.0424876, 100, -2.21459e-12, -100, -0.0424846, -3.31794e-05, -1.14716e-07, 2.6847, 0.472189)
 top_level = true
 script = ExtResource("6_n04bj")
 bone_name = "Back"
@@ -206,7 +207,7 @@ transform = Transform3D(-0.462088, -0.0443974, 0.58907, 0.00145611, 0.747791, 0.
 transform = Transform3D(0.689857, 0.0543693, -0.289207, 0.00675623, 0.733967, 0.154098, 0.294195, -0.144346, 0.674621, 0.130274, 0.0364339, 0.0691185)
 
 [node name="Hand_L_BoneAttachment3D" type="BoneAttachment3D" parent="Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(0, -0.382684, -0.923879, 1, 0, -2.98023e-08, -2.98023e-08, -0.923879, 0.382684, -0.0076842, -2.46441e-09, 0.00878371)
+transform = Transform3D(0, -0.382684, -0.923879, 1, 0, 0, 0, -0.923879, 0.382684, -0.0076842, -2.46441e-09, 0.00878371)
 bone_name = "Hand.L"
 bone_idx = 5
 
@@ -214,7 +215,7 @@ bone_idx = 5
 transform = Transform3D(-0.000986747, 0.00568025, -0.00479701, 0.00704386, 0.00226279, 0.00123049, 0.00237921, -0.00434336, -0.00563247, -0.00153357, 0.00123528, -0.000152905)
 
 [node name="Hand_R_BoneAttachment3D2" type="BoneAttachment3D" parent="Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(-2.38419e-07, 0.382684, 0.923879, -1, -1.19209e-07, -1.78814e-07, 0, -0.92388, 0.382683, 0.0076842, -2.33896e-09, 0.00878371)
+transform = Transform3D(1.19209e-07, 0.382683, 0.92388, -1, 1.19209e-07, 1.19209e-07, -1.19209e-07, -0.92388, 0.382683, 0.0076842, -2.33896e-09, 0.00878371)
 bone_name = "Hand.R"
 bone_idx = 8
 
