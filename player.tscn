@@ -4,12 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://bqx666vmubd6c" path="res://assets/3D/char.tscn" id="2_85a4p"]
 
 [sub_resource type="Curve" id="Curve_lyvwj"]
-_data = [Vector2(0.00353357, 0), 0.0, 0.0, 0, 0, Vector2(0.469965, 0.451429), 0.0, 0.0, 0, 0, Vector2(0.770318, 0.468571), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Curve" id="Curve_w0o3t"]
-_data = [Vector2(0.00353357, 0.982857), 0.0, 0.0, 0, 0, Vector2(0.636042, 0.588571), 0.0, 0.0, 0, 0, Vector2(0.773852, 0.557243), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+min_value = -1.0
+max_value = 0.0
+_data = [Vector2(0, -1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hrgk7"]
 
@@ -21,15 +23,16 @@ point_count = 4
 physics_interpolation_mode = 1
 safe_margin = 0.06
 script = ExtResource("1_lukb3")
-turn_speed = 2.0
+turn_speed = 5.0
 acceleration_curve = SubResource("Curve_lyvwj")
 slowdown_curve = SubResource("Curve_w0o3t")
-slowdown_time = 0.5
+acceleration_time = 1.0
 max_speed = 25
 rotation_weight = 5.0
 rotation_speed_mod = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888579, 0)
 shape = SubResource("CapsuleShape3D_hrgk7")
 
 [node name="SpringArm" type="SpringArm3D" parent="."]

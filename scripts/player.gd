@@ -6,15 +6,16 @@ class_name Player
 @export var jump_velocity = 4.5
 @export var fall_acceleration = 75
 @export var turn_speed : float = 1 
+@export var turn_curve : Curve
 
 @export_category("Acceleration")
 @export var acceleration_curve : Curve
 @export var slowdown_curve : Curve
 @export var acceleration_time : float = 0.2
-@export var slowdown_time : float = 0.2
 @export var max_speed = 50
-var acceleration = 0.0
-var deacceleration = 0.0
+#@export var slowdown_time : float = 0.2
+#var acceleration = 0.0
+#var deacceleration = 0.0
 
 #@export var slow_curve : float = 1
 var target_velocity = Vector3.ZERO
@@ -32,8 +33,9 @@ var smooth_rotation: Vector3
 
 #nodes
 var spring_arm
-var tween
 var visuals
+
+var time_elapsed = 0.0
 
 func _ease_velocity(value: float, curve: Curve, delta: float, total_time: float) -> float:
 	var factor = min(abs(value) / max_speed, 1.0) # Normalized factor for speed
@@ -77,37 +79,26 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		var target_velocity_x = direction.x * max_speed
 		var target_velocity_z = direction.z * max_speed
-		#acceleration = min(acceleration + delta / acceleration_time, 1.0)
-		
-		velocity.x = lerp(velocity.x, target_velocity_x, acceleration_curve.sample(acceleration_time) * delta)
-		velocity.z = lerp(velocity.z, target_velocity_z, acceleration_curve.sample(acceleration_time) * delta)
-		#velocity.x = _ease_velocity(direction.x * max_speed, acceleration_curve, delta, acceleration_time)
-		#velocity.z = _ease_velocity(direction.z * max_speed, acceleration_curve, delta, acceleration_time)
-		
-		#velocity.z = clamp(velocity.z, -max_speed, max_speed)
-		#velocity.x = clamp(velocity.x, -max_speed, max_speed)
-		#velocity.x = direction.x * speed
-		#velocity.z = direction.z * speed
-		#var x = remap (time, 0, acceleration_time, 0, 1)
-		#velocity.x = velocity.move_toward(direction * speed, accel_curve.sample_baked(x) * accel).x
-		#var z = remap (time, 0, acceleration_time, 0, 1)
-		#velocity.z = velocity.move_toward(direction * speed, accel_curve.sample_baked(z) * accel).z
+		time_elapsed+=delta
+		time_elapsed = clamp(time_elapsed, 0, acceleration_time)
+		var normalized_time = remap(time_elapsed, 0, acceleration_time, 0, 1)
+		print(normalized_time)
+		velocity.x = lerp(velocity.x, target_velocity_x, acceleration_curve.sample(normalized_time) * delta)
+		velocity.z = lerp(velocity.z, target_velocity_z, acceleration_curve.sample(normalized_time) * delta)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, slowdown_curve.sample(slowdown_time) * delta)
-		velocity.z = lerp(velocity.z, 0.0, slowdown_curve.sample(slowdown_time) * delta)
-		#var x = remap (time, 0, slowdown_time, 0, 1)
-		#velocity.x = velocity.move_toward(direction * speed, slowdown_curve.sample_baked(x) * slowdown).x
-		#var z = remap (time, 0, slowdown_time, 0, 1)
-		#velocity.z = velocity.move_toward(direction * speed, slowdown_curve.sample_baked(z) * slowdown).z
+		time_elapsed-=delta
+		
+		velocity.x = lerp(velocity.x, 0.0, -slowdown_curve.sample(0) * delta)
+		velocity.z = lerp(velocity.z, 0.0, -slowdown_curve.sample(0) * delta)
+	
+	move_and_slide()
 	
 	if velocity.length() > 0.2:
 		rotate_visuals(delta)
 		
 	else:
 		on_stop()
-		#visuals.rotation.y = lerpf(spring_arm.rotation.y, atan2(-velocity.x, -velocity.z), turn_speed * delta)
-	move_and_slide()
-	print(velocity.length())
+		#time_elapsed = 0.0	
 
 func rotate_visuals(delta : float):
 	var current_rot = visuals.rotation_degrees

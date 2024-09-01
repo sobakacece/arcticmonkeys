@@ -33,7 +33,6 @@ transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 3.61752, 2.09396, 3.83329)
 [node name="Player" parent="." instance=ExtResource("2_sb0ac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.9649, 0)
 turn_speed = 1.0
-acceleration_time = 0.2
 slowdown_time = 0.2
 
 [node name="Wall" parent="." instance=ExtResource("1_fjdu6")]
