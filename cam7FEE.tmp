@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6e56mk74ichh"]
+
+[ext_resource type="Script" path="res://orbit_camera.gd" id="1_qs2gb"]
+[ext_resource type="Script" path="res://button_start.gd" id="2_6xd5u"]
+[ext_resource type="Script" path="res://sensitivity_slider.gd" id="2_l1q1a"]
+
+[node name="camera_menu" type="Node3D"]
+
+[node name="Center" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Center"]
+spring_length = 50.0
+script = ExtResource("1_qs2gb")
+
+[node name="OrbitCamera" type="Camera3D" parent="Center/SpringArm3D"]
+transform = Transform3D(-0.594823, 0, 0.803857, 0, 1, 0, -0.803857, 0, -0.594823, 0, 0, 0)
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1080, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(150, 50)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -14.0
+offset_right = 75.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_6xd5u")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sensitivity" type="HSlider" parent="Control/VBoxContainer"]
+layout_mode = 2
+max_value = 0.1
+step = 0.01
+script = ExtResource("2_l1q1a")

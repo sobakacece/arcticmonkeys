@@ -13,5 +13,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	speed_label.text = format_string_speed % [GlobalRefs.player_ref.velocity.length()]
-	velocity_label.text = format_string_velocity % [GlobalRefs.player_ref.velocity]
+	if GlobalRefs.player_ref:
+		speed_label.text = format_string_speed % [GlobalRefs.player_ref.velocity.length()]
+		velocity_label.text = format_string_velocity % [GlobalRefs.player_ref.velocity]

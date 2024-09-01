@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lukb3"]
 [ext_resource type="PackedScene" uid="uid://bqx666vmubd6c" path="res://assets/3D/char.tscn" id="2_85a4p"]
-[ext_resource type="PackedScene" uid="uid://d312bhn4kep8k" path="res://aligner.tscn" id="3_3fw40"]
+[ext_resource type="PackedScene" uid="uid://cgctj8nul8mba" path="res://aligner.tscn" id="3_3fw40"]
 
 [sub_resource type="Curve" id="Curve_lyvwj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]

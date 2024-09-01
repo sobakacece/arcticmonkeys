@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6e56mk74ichh"]
+
+[ext_resource type="Script" path="res://scripts/orbit_camera.gd" id="1_qs2gb"]
+[ext_resource type="Script" path="res://scripts/button_start.gd" id="2_6xd5u"]
+[ext_resource type="Script" path="res://scripts/sensitivity_slider.gd" id="2_l1q1a"]
+[ext_resource type="Script" path="res://scripts/menu_states.gd" id="2_p306k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t4fkk"]
+font_size = 84
+
+[node name="camera_menu" type="Node3D"]
+
+[node name="Center" type="Marker3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Center"]
+spring_length = 50.0
+script = ExtResource("1_qs2gb")
+rotate_speed = 0.1
+
+[node name="OrbitCamera" type="Camera3D" parent="Center/SpringArm3D"]
+transform = Transform3D(-0.587785, -0.572061, 0.572062, 0, 0.707107, 0.707107, -0.809017, 0.415627, -0.415627, 0, 0, 0)
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("Pause_Button", "Start_Button", "Restart_Button")]
+process_mode = 3
+custom_minimum_size = Vector2(1080, 720)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 504.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_p306k")
+Pause_Button = NodePath("VBoxContainer/Pause_Button")
+Start_Button = NodePath("VBoxContainer/Start_Button")
+Restart_Button = NodePath("VBoxContainer/RestartButton")
+
+[node name="MenuLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 100.0
+offset_right = 1.0
+offset_bottom = 158.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_t4fkk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(300, 50)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -14.0
+offset_right = 75.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start_Button" type="Button" parent="Control/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+text = "START"
+script = ExtResource("2_6xd5u")
+
+[node name="Pause_Button" type="Button" parent="Control/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+text = "CONTINUE"
+script = ExtResource("2_6xd5u")
+
+[node name="RestartButton" type="Button" parent="Control/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+text = "RESTART"
+script = ExtResource("2_6xd5u")
+
+[node name="Sens_Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Sensitivity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sensitivity" type="HSlider" parent="Control/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+min_value = 0.001
+max_value = 0.05
+step = 0.001
+value = 0.05
+script = ExtResource("2_l1q1a")

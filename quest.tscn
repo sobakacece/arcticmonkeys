@@ -1,42 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm3eqducbskwy"]
+[gd_scene load_steps=2 format=3 uid="uid://cm3eqducbskwy"]
 
-[ext_resource type="PackedScene" uid="uid://drcprtrfvcbxh" path="res://assets/3D/peng_on_map.tscn" id="2_yudgo"]
 [ext_resource type="Script" path="res://scripts/quest_manager.gd" id="3_qy12e"]
 
 [node name="Quest" type="Node3D"]
-
-[node name="Penguins" type="Node3D" parent="."]
-
-[node name="Peng_on_map" parent="Penguins" instance=ExtResource("2_yudgo")]
-
-[node name="Area3D" parent="Penguins/Peng_on_map" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_manager = NodePath("../../../QuestManager")
-
-[node name="Peng_on_map2" parent="Penguins" instance=ExtResource("2_yudgo")]
-
-[node name="Area3D" parent="Penguins/Peng_on_map2" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_manager = NodePath("../../../QuestManager")
-
-[node name="Peng_on_map3" parent="Penguins" instance=ExtResource("2_yudgo")]
-
-[node name="Area3D" parent="Penguins/Peng_on_map3" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_manager = NodePath("../../../QuestManager")
-
-[node name="Peng_on_map4" parent="Penguins" instance=ExtResource("2_yudgo")]
-
-[node name="Area3D" parent="Penguins/Peng_on_map4" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_manager = NodePath("../../../QuestManager")
-
-[node name="Peng_on_map5" parent="Penguins" instance=ExtResource("2_yudgo")]
-
-[node name="Area3D" parent="Penguins/Peng_on_map5" index="1" node_paths=PackedStringArray("quest_manager")]
-quest_manager = NodePath("../../../QuestManager")
-
-[node name="QuestManager" type="Node" parent="."]
 script = ExtResource("3_qy12e")
-
-[editable path="Penguins/Peng_on_map"]
-[editable path="Penguins/Peng_on_map2"]
-[editable path="Penguins/Peng_on_map3"]
-[editable path="Penguins/Peng_on_map4"]
-[editable path="Penguins/Peng_on_map5"]

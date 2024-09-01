@@ -36,38 +36,43 @@ var smooth_rotation: Vector3
 
 #should be hidden later
 @export_category("General")
-@export var mouse_sensitivity = 0.01
+#@export var mouse_sensitivity = 0.01
 @export var snapping_distance = 2
 @export var mass = 3
 
 var slope_const = 2
 #nodes
 var spring_arm
+var camera
 var visuals
 var dash_timer : SceneTreeTimer
 var jump_timer : SceneTreeTimer
 var is_jumping : bool = false
+var focused : bool = false
 
 #dynamic_values
 var current_acceleration_boost
 var time_elapsed = 0.0
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	spring_arm = find_child("SpringArm")
 	visuals = find_child("Visuals")
 	GlobalRefs._add_player_ref(self)
+	camera = $SpringArm/Camera3D
 	#tween = get_tree().create_tween()
+	
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		#rotate_y(deg_to_rad(event.relative.x))
 		#target_rotation.x = clamp(target_rotation.x, deg_to_rad(-80), deg_to_rad(50))
-		target_camera_rotation.y -= event.relative.x * mouse_sensitivity * rotation_speed_mod
+		target_camera_rotation.y -= event.relative.x * GlobalRefs.mouse_sensitivity * rotation_speed_mod
 		#target_rotation.y = wrapf(target_rotation.y, 0, 360)
-		target_camera_rotation.x -= event.relative.y * mouse_sensitivity * rotation_speed_mod
+		target_camera_rotation.x -= event.relative.y * GlobalRefs.mouse_sensitivity * rotation_speed_mod
 		target_camera_rotation.x = clamp(target_camera_rotation.x, deg_to_rad(camera_range_y_axis.x), deg_to_rad(camera_range_y_axis.y))
 		#print(target_rotation.x);
+	if Input.is_action_just_pressed("pause") && focused:
+		GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuPause)
 		
 
 		
@@ -100,33 +105,33 @@ func _physics_process(delta: float) -> void:
 		##var temp_rotation = Quaternion(get_normal(), Vector3.UP).normalized()
 		#var gravity_vector = get_gravity().project(normal)
 		#velocity += slope_process(delta) - gravity_vector  * delta
-	
+	if focused:
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_velocity
-		is_jumping = true
-		if !jump_timer:
-			jump_timer = get_tree().create_timer(jump_state_time, false, true)
-			jump_timer.timeout.connect(func(): jump_end_handle())
-	
-	update_velocity_input(delta)
-	#print(is_jumping)
-	if not is_on_floor():
-		print($Slop_end_check.is_colliding())
-		if ($RayCast3D.get_collision_point().distance_to(position) < snapping_distance && $Slop_end_check.is_colliding() && !is_jumping):
-			position = $RayCast3D.get_collision_point()
-			#is_jumping = false
-			#print("SNAPPED")
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = jump_velocity
+			is_jumping = true
+			if !jump_timer:
+				jump_timer = get_tree().create_timer(jump_state_time, false, true)
+				jump_timer.timeout.connect(func(): jump_end_handle())
 		
-		velocity += get_gravity() * delta * mass
-	move_and_slide()
-	#$SpringArm/Camera3D.position = clamp($SpringArm/Camera3D.position, Vector3(-1, -1, 4), Vector3(5,5,5))
-	
-	if velocity.length() > 0.2:
-		rotate_visuals(delta)
+		update_velocity_input(delta)
+		#print(is_jumping)
+		if not is_on_floor():
+			#print($Slop_end_check.is_colliding())
+			if ($RayCast3D.get_collision_point().distance_to(position) < snapping_distance && $Slop_end_check.is_colliding() && !is_jumping):
+				position = $RayCast3D.get_collision_point()
+				#is_jumping = false
+				#print("SNAPPED")
+			
+			velocity += get_gravity() * delta * mass
+		move_and_slide()
+		#$SpringArm/Camera3D.position = clamp($SpringArm/Camera3D.position, Vector3(-1, -1, 4), Vector3(5,5,5))
 		
-	else:
-		on_stop()
+		if velocity.length() > 0.2:
+			rotate_visuals(delta)
+			
+		else:
+			on_stop()
 		#time_elapsed = 0.0	
 		
 func update_velocity_input(delta : float):

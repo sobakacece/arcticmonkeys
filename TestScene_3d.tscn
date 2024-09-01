@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq64i63y5oim0"]
+[gd_scene load_steps=18 format=3 uid="uid://cq64i63y5oim0"]
 
 [ext_resource type="PackedScene" uid="uid://dutgh7ygmpwtc" path="res://player.tscn" id="2_sb0ac"]
 [ext_resource type="Texture2D" uid="uid://cn46ahj63m60d" path="res://assets/textures/sky.jpg" id="4_40w4v"]
-[ext_resource type="PackedScene" path="res://debug.tscn" id="5_by066"]
+[ext_resource type="PackedScene" uid="uid://dmk67kpfhgk3o" path="res://debug.tscn" id="5_by066"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="6_3gkvy"]
 [ext_resource type="Resource" path="res://assets/3D/hTerrain/data.hterrain" id="7_8i0a7"]
 [ext_resource type="Resource" path="res://assets/3D/hTerrain_Soil/data.hterrain" id="7_firl0"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="8_cl5w7"]
 [ext_resource type="PackedScene" uid="uid://cm3eqducbskwy" path="res://quest.tscn" id="8_odvoa"]
+[ext_resource type="PackedScene" uid="uid://c6e56mk74ichh" path="res://camera_menu.tscn" id="9_d8pd0"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="10_o3mhp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyvpb"]
 panorama = ExtResource("4_40w4v")
@@ -47,22 +49,25 @@ floor_max_angle = 3.14159
 mass = 1
 
 [node name="Jigglebone" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="1"]
-transform = Transform3D(100, 0.00714704, 0.00297196, 0.002955, -70.7131, 70.7083, 0.00715653, -70.7083, -70.7131, 74.9524, 31.1546, 77.6733)
+transform = Transform3D(100, 0.00714108, 0.00297196, 0.002955, -70.713, 70.7083, 0.00715057, -70.7083, -70.713, 74.9524, 31.1546, 77.6733)
 
 [node name="Jigglebone2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="2"]
-transform = Transform3D(-100, -0.00729031, -0.00278696, 0.00317534, -70.7095, 70.7118, -0.00712673, 70.7118, 70.7096, 74.9522, 31.1546, 78.4626)
+transform = Transform3D(-100, -0.00676579, -0.00287041, 0.00275513, -70.7099, 70.7115, -0.00681679, 70.7115, 70.7099, 74.9522, 31.1546, 78.4626)
 
 [node name="Jigglebone3" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(-100, -0.00205088, -0.00461106, 0.000132521, -92.3865, 38.2718, -0.00504057, 38.2718, 92.3865, 74.9523, 30.7809, 78.8364)
+transform = Transform3D(-100, -0.00168133, -0.00458125, -0.000195304, -92.3862, 38.2725, -0.00487367, 38.2725, 92.3862, 74.9523, 30.7809, 78.8364)
 
 [node name="Jigglebone4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(100, 0.0017865, 0.00469785, -0.000150403, -92.3889, 38.266, 0.00502865, -38.266, -92.3889, 74.9523, 30.7809, 77.2995)
+transform = Transform3D(100, 0.00155405, 0.00473659, -0.000367959, -92.3887, 38.2666, 0.00495712, -38.2667, -92.3886, 74.9523, 30.7809, 77.2995)
 
 [node name="Jigglebone5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="5"]
 transform = Transform3D(100, -4.33126e-05, 0.00283917, 3.43719e-05, 100, 5.96034e-06, -0.00283917, -2.98024e-06, 100, 75.9523, 31.8586, 78.068)
 
 [node name="Jigglebone6" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="6"]
 transform = Transform3D(100, -0.00588457, 0.00284513, 0.00588755, 100, 0.00063777, -0.00283917, -0.000634791, 100, 74.4799, 33.3872, 78.0679)
+
+[node name="Back_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="7"]
+transform = Transform3D(-4.76837e-07, -5.96046e-08, 1, 1, -1.19209e-07, 4.17233e-07, 5.96046e-08, 1, 2.13163e-14, 2.74491e-10, -0.00472188, 0.014847)
 
 [node name="Bag_1_Mesh" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="0"]
 visible = false
@@ -80,13 +85,13 @@ visible = false
 visible = false
 
 [node name="Hand_L_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(5.00679e-05, -0.38266, -0.923889, 1, 1.78218e-05, 4.67598e-05, -1.46031e-06, -0.923889, 0.38266, -0.00768407, 3.74647e-07, 0.00878359)
+transform = Transform3D(4.93526e-05, -0.382667, -0.923886, 1, 1.54972e-05, 4.71473e-05, -3.63588e-06, -0.923887, 0.382666, -0.00768407, 3.74485e-07, 0.00878359)
 
 [node name="Peng5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0"]
 visible = false
 
 [node name="Hand_R_BoneAttachment3D2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(-5.01871e-05, 0.382718, 0.923865, -1, -2.03848e-05, -4.59254e-05, 1.2815e-06, -0.923865, 0.382718, 0.00768426, -3.79092e-07, 0.00878377)
+transform = Transform3D(-4.85182e-05, 0.382725, 0.923862, -1, -1.66893e-05, -4.56274e-05, -1.99676e-06, -0.923862, 0.382725, 0.00768424, -3.60849e-07, 0.00878376)
 
 [node name="Peng4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0"]
 visible = false
@@ -148,39 +153,39 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 
-[node name="Quest" parent="." instance=ExtResource("8_odvoa")]
+[node name="Quest" parent="." node_paths=PackedStringArray("Player_Bag1", "Player_Bag2", "Player_Bag3", "Player_Peng1", "Player_Peng2", "Player_Peng3", "Player_Peng4", "Player_Peng5") instance=ExtResource("8_odvoa")]
+Player_Bag1 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Bag_1_Mesh")
+Player_Bag2 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Bag_2_Mesh")
+Player_Bag3 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Bag_3_Mesh")
+Player_Peng1 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng")
+Player_Peng2 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng2")
+Player_Peng3 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng3")
+Player_Peng4 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2/Peng4")
+Player_Peng5 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D/Peng5")
 
-[node name="Peng_on_map" parent="Quest/Penguins" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5613, 0, 65.4772)
+[node name="camera_menu" parent="." instance=ExtResource("9_d8pd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.631, 84.655, 184.119)
 
-[node name="Peng_on_map2" parent="Quest/Penguins" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5266, 0, 68.3336)
+[node name="spawner" type="Node3D" parent="."]
+script = ExtResource("10_o3mhp")
+spawn_amount = 3
 
-[node name="Peng_on_map3" parent="Quest/Penguins" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.178, 9.53674e-07, 69.1209)
+[node name="Marker3D" type="Marker3D" parent="spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.5479, 8.36704, 296.18)
 
-[node name="Peng_on_map4" parent="Quest/Penguins" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4105, 0, 63.3926)
+[node name="Marker3D2" type="Marker3D" parent="spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.74, 5.68166, 149.506)
 
-[node name="Peng_on_map5" parent="Quest/Penguins" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.6152, 0, 59.8756)
+[node name="Marker3D3" type="Marker3D" parent="spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8157, 49.5675, 8.32176)
 
-[node name="QuestManager" parent="Quest" index="1" node_paths=PackedStringArray("Player_Bag1", "Player_Bag2", "Player_Bag3", "Player_Peng1", "Player_Peng2", "Player_Peng3", "Player_Peng4", "Player_Peng5")]
-Player_Bag1 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Bag_3_Mesh")
-Player_Bag2 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Bag_2_Mesh")
-Player_Bag3 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Bag_1_Mesh")
-Player_Peng1 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng")
-Player_Peng2 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng2")
-Player_Peng3 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng3")
-Player_Peng4 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2/Peng4")
-Player_Peng5 = NodePath("../../Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D/Peng5")
+[node name="Marker3D4" type="Marker3D" parent="spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4043, 7.72099, 51.0787)
+
+[node name="Marker3D5" type="Marker3D" parent="spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.196, 3.45627, 152.02)
 
 [editable path="Player"]
 [editable path="Player/Visuals/Char"]
 [editable path="Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags"]
 [editable path="Quest"]
-[editable path="Quest/Penguins/Peng_on_map"]
-[editable path="Quest/Penguins/Peng_on_map2"]
-[editable path="Quest/Penguins/Peng_on_map3"]
-[editable path="Quest/Penguins/Peng_on_map4"]
-[editable path="Quest/Penguins/Peng_on_map5"]

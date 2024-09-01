@@ -1,5 +1,6 @@
 extends Node
 
+class_name QuestManager
 signal peng_picked_up
 
 @export var Player_Bag1: Node3D
@@ -15,6 +16,7 @@ signal peng_picked_up
 var peng_counter = 0
 
 func _ready() -> void:
+	GlobalRefs._add_quest_ref(self)
 	peng_picked_up.connect(func_peng_picked_up)
 	#func_peng_picked_up()
 

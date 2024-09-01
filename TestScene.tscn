@@ -36,7 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.6342, -24.9624)
 jump_velocity = 14
 dash_boost = 35.0
 dash_acceleration = 2.5
-snapping_distance = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_asr0r")
