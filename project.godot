@@ -25,7 +25,7 @@ project/assembly_name="ArcticMonkeys"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/jigglebones/plugin.cfg")
+enabled=PackedStringArray("res://addons/jigglebones/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
 [input]
 
