@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmk67kpfhgk3o" path="res://debug.tscn" id="5_by066"]
 [ext_resource type="PackedScene" uid="uid://cm3eqducbskwy" path="res://quest.tscn" id="8_odvoa"]
 [ext_resource type="Material" uid="uid://bg2tfhg80xcan" path="res://assets/3D/Materials/SNOW.tres" id="8_ofulq"]
-[ext_resource type="ArrayMesh" uid="uid://csou7eruw2owo" path="res://assets/3D/FBXs/map.obj" id="9_6jq23"]
+[ext_resource type="ArrayMesh" uid="uid://csou7eruw2owo" path="res://assets/3D/map.obj" id="9_6jq23"]
 [ext_resource type="PackedScene" uid="uid://c6e56mk74ichh" path="res://camera_menu.tscn" id="9_d8pd0"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="9_ssixw"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_f58dk"]
@@ -81,25 +81,25 @@ floor_max_angle = 3.14159
 mass = 1
 
 [node name="Jigglebone" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="1"]
-transform = Transform3D(100, 4.45719e-07, 6.62216e-06, -1.03316e-05, -70.6986, 70.7228, -1.98612e-06, -70.7228, -70.6986, 134.715, 8.46951, 165.136)
+transform = Transform3D(100, -1.14753e-05, 6.62224e-06, -1.03316e-05, -70.699, 70.7223, -1.98612e-06, -70.7223, -70.699, 134.715, 8.46951, 165.136)
 
 [node name="Jigglebone2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="2"]
 transform = Transform3D(-100, -1.85472e-05, -1.23605e-05, 4.37114e-06, -70.6993, 70.722, -2.18557e-05, 70.722, 70.6993, 134.715, 8.46951, 165.926)
 
 [node name="Jigglebone3" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(-100, -2.43265e-05, -2.74578e-05, 1.33118e-05, -92.3811, 38.2848, -3.37767e-05, 38.2848, 92.3811, 134.715, 8.09581, 166.3)
+transform = Transform3D(-100, -1.24056e-05, -1.55368e-05, 7.35137e-06, -92.3811, 38.285, -1.58953e-05, 38.285, 92.3811, 134.715, 8.09581, 166.3)
 
 [node name="Jigglebone4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(100, -7.59133e-06, 9.94308e-06, -1.03316e-05, -92.3806, 38.286, 9.93481e-06, -38.286, -92.3806, 134.715, 8.09581, 164.762)
+transform = Transform3D(100, -1.95124e-05, -1.09185e-05, -1.03316e-05, -92.381, 38.2852, -2.5828e-05, -38.2852, -92.381, 134.715, 8.09581, 164.762)
 
 [node name="Jigglebone5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="5"]
 transform = Transform3D(100, 6.39758e-05, 0.0125964, -6.99362e-05, 100, -5.51564e-10, -0.0126024, -5.96045e-06, 100, 135.715, 9.17351, 165.531)
 
 [node name="Jigglebone6" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="6"]
-transform = Transform3D(100, -0.0412182, 7.94876e-06, 0.0412242, 100, 0.0497341, -2.5828e-05, -0.0497282, 100, 134.242, 10.7021, 165.53)
+transform = Transform3D(100, -0.0403361, 1.98699e-06, 0.0403301, 100, 0.0198126, -1.98612e-06, -0.0198126, 100, 134.242, 10.7021, 165.53)
 
 [node name="Back_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="7"]
-transform = Transform3D(-4.76837e-07, -0.000497281, 1, 1, -0.000412226, 2.98023e-07, 0.000412285, 1, 0.000497341, 2.74491e-10, -0.00472188, 0.014847)
+transform = Transform3D(-2.38419e-07, -0.000198126, 1, 1, -0.000403404, 2.38419e-07, 0.000403345, 1, 0.000198126, 2.74491e-10, -0.00472188, 0.014847)
 
 [node name="Bag_1_Mesh" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="0"]
 visible = false
@@ -117,13 +117,13 @@ visible = false
 visible = false
 
 [node name="Hand_L_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(-1.19209e-07, -0.38286, -0.923806, 1, -1.19209e-07, -1.19209e-07, -5.96046e-08, -0.923806, 0.38286, -0.00768483, -3.24463e-09, 0.00878435)
+transform = Transform3D(-4.76837e-07, -0.382852, -0.92381, 1, -2.38419e-07, -3.27826e-07, -5.96046e-08, -0.92381, 0.382852, -0.00768482, -3.7098e-09, 0.00878433)
 
 [node name="Peng5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0"]
 visible = false
 
 [node name="Hand_R_BoneAttachment3D2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(-1.19209e-07, 0.382848, 0.923811, -1, -1.19209e-07, -8.9407e-08, 8.9407e-08, -0.923811, 0.382848, 0.0076848, -2.33896e-09, 0.00878431)
+transform = Transform3D(5.96046e-08, 0.38285, 0.92381, -1, 0, 2.98023e-08, 2.98023e-08, -0.923811, 0.38285, 0.0076848, -2.33896e-09, 0.00878431)
 
 [node name="Peng4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0"]
 visible = false
@@ -165,7 +165,7 @@ script = ExtResource("10_o3mhp")
 spawn_amount = 5
 
 [node name="Marker3D" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.006, 5.76535, 139.354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.008, 5.78699, 139.354)
 
 [node name="Marker3D2" type="Marker3D" parent="spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.687, 5.68166, 116.739)
