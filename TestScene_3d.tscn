@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=4 uid="uid://cq64i63y5oim0"]
 
+[ext_resource type="Texture2D" uid="uid://b67dp4htsioue" path="res://assets/textures/sky_new.png" id="2_6ewxt"]
 [ext_resource type="PackedScene" uid="uid://dutgh7ygmpwtc" path="res://player.tscn" id="2_sb0ac"]
-[ext_resource type="Texture2D" uid="uid://cn46ahj63m60d" path="res://assets/textures/sky.jpg" id="4_40w4v"]
 [ext_resource type="PackedScene" uid="uid://dmk67kpfhgk3o" path="res://debug.tscn" id="5_by066"]
 [ext_resource type="PackedScene" uid="uid://cm3eqducbskwy" path="res://quest.tscn" id="8_odvoa"]
 [ext_resource type="Material" uid="uid://bg2tfhg80xcan" path="res://assets/3D/Materials/SNOW.tres" id="8_ofulq"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dhykewkgo7jc0" path="res://MAP.tscn" id="14_3df0d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jyvpb"]
-panorama = ExtResource("4_40w4v")
+panorama = ExtResource("2_6ewxt")
 energy_multiplier = 0.1
 
 [sub_resource type="Sky" id="Sky_3bx60"]
@@ -87,19 +87,19 @@ transform = Transform3D(100, 4.45712e-07, 3.64194e-06, -4.37114e-06, -70.6986, 7
 transform = Transform3D(-100, -1.85472e-05, -1.23605e-05, 4.37114e-06, -70.6993, 70.722, -2.18557e-05, 70.722, 70.6993, 134.715, 8.46951, 165.926)
 
 [node name="Jigglebone3" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(-100, -2.43264e-05, -3.63985e-05, 4.37114e-06, -92.3812, 38.2847, -4.56976e-05, 38.2847, 92.3812, 134.715, 8.09581, 166.3)
+transform = Transform3D(-100, -3.62474e-05, -2.74578e-05, 1.33118e-05, -92.3812, 38.2847, -4.56976e-05, 38.2847, 92.3812, 134.715, 8.09581, 166.3)
 
 [node name="Jigglebone4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(100, -1.95168e-05, -4.95718e-06, -1.62921e-05, -92.3886, 38.2667, -1.98612e-06, -38.2667, -92.3886, 134.715, 8.09581, 164.763)
+transform = Transform3D(100, -7.59149e-06, -1.6879e-05, -1.03316e-05, -92.3809, 38.2853, -1.3907e-05, -38.2853, -92.3809, 134.715, 8.09581, 164.762)
 
 [node name="Jigglebone5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="5"]
 transform = Transform3D(100, 6.39758e-05, 0.0125964, -6.99362e-05, 100, -5.51564e-10, -0.0126024, -5.96045e-06, 100, 135.715, 9.17351, 165.531)
 
 [node name="Jigglebone6" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="6"]
-transform = Transform3D(100, -0.0412301, 2.8806e-05, 0.0412242, 100, -0.0497222, -1.3907e-05, 0.0497162, 100, 134.242, 10.7021, 165.532)
+transform = Transform3D(100, -0.0403361, 1.98699e-06, 0.0403301, 100, 0.0198126, -1.98612e-06, -0.0198126, 100, 134.242, 10.7021, 165.53)
 
 [node name="Back_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="7"]
-transform = Transform3D(-3.57628e-07, 0.000497162, 1, 1, -0.000412345, 5.06639e-07, 0.000412285, 1, -0.000497222, 2.74491e-10, -0.00472188, 0.014847)
+transform = Transform3D(-2.38419e-07, -0.000198126, 1, 1, -0.000403404, 2.38419e-07, 0.000403345, 1, 0.000198126, 2.74491e-10, -0.00472188, 0.014847)
 
 [node name="Bag_1_Mesh" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags" index="0"]
 visible = false
@@ -117,13 +117,13 @@ visible = false
 visible = false
 
 [node name="Hand_L_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(-2.38419e-07, -0.382667, -0.923886, 1, -2.38419e-07, -2.68221e-07, -1.19209e-07, -0.923886, 0.382667, -0.00768483, -3.25075e-09, 0.00878434)
+transform = Transform3D(-3.57628e-07, -0.382853, -0.923809, 1, -1.19209e-07, -3.8743e-07, -5.96046e-08, -0.923809, 0.382853, -0.00768483, -3.25075e-09, 0.00878434)
 
 [node name="Peng5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0"]
 visible = false
 
 [node name="Hand_R_BoneAttachment3D2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(-2.38419e-07, 0.382847, 0.923812, -1, -1.19209e-07, -1.78814e-07, 0, -0.923812, 0.382847, 0.0076848, -2.33896e-09, 0.00878431)
+transform = Transform3D(-2.38419e-07, 0.382847, 0.923812, -1, -2.38419e-07, -8.9407e-08, 8.9407e-08, -0.923812, 0.382847, 0.0076848, -2.33896e-09, 0.00878431)
 
 [node name="Peng4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0"]
 visible = false
@@ -156,6 +156,16 @@ Player_Peng2 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_Bo
 Player_Peng3 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Back_BoneAttachment3D/Bags/Peng3")
 Player_Peng4 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2/Peng4")
 Player_Peng5 = NodePath("../Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D/Peng5")
+
+[node name="Time_Left" parent="Quest/Control" index="0"]
+visible = false
+
+[node name="Penguin_Counter" parent="Quest/Control" index="1"]
+offset_left = -199.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = 99.0
+text = "0/5"
 
 [node name="camera_menu" parent="." instance=ExtResource("9_d8pd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.631, 26.7973, 184.119)

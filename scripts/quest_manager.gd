@@ -77,6 +77,7 @@ func _update_timer_label():
 	var total = quest_timer.time_left
 	var minutes = int(total)/60
 	total-= minutes*60
+	total = 999
 	var seconds = int(total)
 	timer_label.text = str("%0*d" % [2, minutes]) + ":" + str("%0*d" % [2, seconds])
 	#print(str("%0*d" % [2, minutes]) + ":" + str("%0*d" % [2, seconds]))
