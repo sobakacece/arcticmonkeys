@@ -1,5 +1,5 @@
 extends Area3D
-
+class_name penguin_object
 #var quest : Node
 var quest_manager: Node
 var parent: Node3D

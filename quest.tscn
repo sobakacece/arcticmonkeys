@@ -1,6 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm3eqducbskwy"]
+[gd_scene load_steps=3 format=3 uid="uid://cm3eqducbskwy"]
 
 [ext_resource type="Script" path="res://scripts/quest_manager.gd" id="3_qy12e"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_8jmdp"]
+font_size = 74
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Quest" type="Node3D"]
 script = ExtResource("3_qy12e")
+quest_time = 5.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time_Left" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -189.0
+offset_right = 11.0
+offset_bottom = 102.0
+grow_horizontal = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_8jmdp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Penguin_Counter" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -189.0
+offset_top = 100.0
+offset_right = 11.0
+offset_bottom = 202.0
+grow_horizontal = 0
+text = "0/1"
+label_settings = SubResource("LabelSettings_8jmdp")
+horizontal_alignment = 1
+vertical_alignment = 1

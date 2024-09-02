@@ -27,6 +27,7 @@ physics_interpolation_mode = 1
 collision_layer = 2
 safe_margin = 0.06
 script = ExtResource("1_lukb3")
+jump_velocity = 12
 turn_speed = 5.0
 acceleration_curve = SubResource("Curve_lyvwj")
 slowdown_curve = SubResource("Curve_w0o3t")

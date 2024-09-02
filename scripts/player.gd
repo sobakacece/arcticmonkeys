@@ -188,7 +188,7 @@ func get_dash_boost() -> float:
 
 func get_max_speed() -> float:
 	#print(dash_timer.get_paath())
-	if Input.is_action_pressed("dash"):
+	if Input.is_action_pressed("dash") && is_on_floor():
 		#print(get_dash_boost())
 		return max_speed + get_dash_boost()
 	else:

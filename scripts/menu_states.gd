@@ -1,6 +1,6 @@
 extends Control
 class_name MainMenu
-enum States {Pause, Start, GameOver, Gameplay}
+enum States {Pause, Start, GameOver, Gameplay, Win}
 @export var Pause_Button : Button
 @export var Start_Button : Button
 @export var Restart_Button : Button
@@ -11,10 +11,9 @@ func _ready() -> void:
 	button_dic = {States.Pause : $VBoxContainer/Pause_Button,
 	States.Start : $VBoxContainer/Start_Button,
 	States.GameOver : $VBoxContainer/RestartButton,
-	States.Gameplay : null}
+	States.Win : $VBoxContainer/RestartButton}
 	#Start_Button.start_game.connect(func(): self.hide())
 	GlobalRefs.main_menu_ref = self
-	
 	GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuStart)
 
 func change_state(next_state : States):
@@ -22,10 +21,12 @@ func change_state(next_state : States):
 		States.Gameplay:
 			self.hide()
 			get_tree().paused = false
+			if (current_state == States.GameOver || current_state == States.Win):
+				GlobalRefs.Restart()
 		States.Start:
 			get_tree().paused = false
 			_update_visibility(next_state)
-			$MenuLabel.text = "LET'S FUCKING GOOOO"
+			$MenuLabel.text = "GATHER ALL PENGUINS AND RETURN HOME UNTIL THEY ALL DIE FROM THE GLOBAL WARMING"
 		States.GameOver:
 			get_tree().paused = true
 			_update_visibility(next_state)
@@ -34,6 +35,10 @@ func change_state(next_state : States):
 			_update_visibility(next_state)
 			get_tree().paused = true
 			$MenuLabel.text = "GAME PAUSED"
+		States.Win:
+			_update_visibility(next_state)
+			get_tree().paused = true
+			$MenuLabel.text = "YOU WON"
 	current_state = next_state
 
 func _update_visibility(key : States):
@@ -43,5 +48,3 @@ func _update_visibility(key : States):
 			button_dic[button].hide()
 	
 	button_dic[key].show()
-func _process(delta: float) -> void:
-	print(Input.mouse_mode)
