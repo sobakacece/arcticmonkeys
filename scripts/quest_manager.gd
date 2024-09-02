@@ -86,7 +86,7 @@ func check_quest_timer():
 	if !quest_timer:
 		quest_timer = Timer.new()
 		add_child(quest_timer)
-		quest_timer.timeout.connect(func() : GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuGameOver))
+		#quest_timer.timeout.connect(func() : GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuGameOver))
 	quest_timer.wait_time = quest_time
 	quest_timer.start()
 		

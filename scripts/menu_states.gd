@@ -26,19 +26,20 @@ func change_state(next_state : States):
 		States.Start:
 			get_tree().paused = false
 			_update_visibility(next_state)
-			$MenuLabel.text = "GATHER ALL PENGUINS AND RETURN HOME UNTIL THEY ALL DIE FROM THE GLOBAL HEATING OR SOMETHING"
+			$MenuLabel.text = "GATHER ALL PENGUINS UNTIL THEY ALL DIE FROM THE GLOBAL HEATING OR SOMETHING"
 		States.GameOver:
 			get_tree().paused = true
 			_update_visibility(next_state)
 			$MenuLabel.text = "LOL, LOL, YOU DIED"
 		States.Pause:
 			_update_visibility(next_state)
+			Restart_Button.show()
 			get_tree().paused = true
 			$MenuLabel.text = "GAME PAUSED"
 		States.Win:
 			_update_visibility(next_state)
 			get_tree().paused = true
-			$MenuLabel.text = "YOU WON"
+			$MenuLabel.text = "GOOD JOB, ALL PENGUINS ARE SAVED"
 	current_state = next_state
 
 func _update_visibility(key : States):

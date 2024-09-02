@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6e56mk74ichh"]
+[gd_scene load_steps=7 format=3 uid="uid://c6e56mk74ichh"]
 
 [ext_resource type="Script" path="res://scripts/orbit_camera.gd" id="1_qs2gb"]
 [ext_resource type="Script" path="res://scripts/button_start.gd" id="2_6xd5u"]
@@ -7,6 +7,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_t4fkk"]
 font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4mru"]
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="camera_menu" type="Node3D"]
 
@@ -97,7 +104,9 @@ script = ExtResource("2_6xd5u")
 
 [node name="Sens_Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "Sensitivity"
+text = "SENSITIVITY
+"
+label_settings = SubResource("LabelSettings_g4mru")
 horizontal_alignment = 1
 vertical_alignment = 1
 
