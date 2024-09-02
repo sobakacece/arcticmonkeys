@@ -26,7 +26,7 @@ func change_state(next_state : States):
 		States.Start:
 			get_tree().paused = false
 			_update_visibility(next_state)
-			$MenuLabel.text = "GATHER ALL PENGUINS AND RETURN HOME UNTIL THEY ALL DIE FROM THE GLOBAL WARMING"
+			$MenuLabel.text = "GATHER ALL PENGUINS AND RETURN HOME UNTIL THEY ALL DIE FROM THE GLOBAL HEATING OR SOMETHING"
 		States.GameOver:
 			get_tree().paused = true
 			_update_visibility(next_state)

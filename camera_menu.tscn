@@ -35,6 +35,7 @@ offset_right = 504.0
 offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.996644)
 script = ExtResource("2_p306k")
 Pause_Button = NodePath("VBoxContainer/Pause_Button")
 Start_Button = NodePath("VBoxContainer/Start_Button")
