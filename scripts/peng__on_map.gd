@@ -3,9 +3,12 @@ class_name penguin_object
 #var quest : Node
 var quest_manager: Node
 var parent: Node3D
+var raycast : RayCast3D
 #
 func _ready() -> void:
 	quest_manager = GlobalRefs.quest_manager
+	raycast = $RayCast3D
+	global_position = raycast.get_collision_point()
 
 func _on_body_entered(body: Node3D) -> void:
 	

@@ -29,7 +29,7 @@ func _ready() -> void:
 	peng_picked_up.connect(func_peng_picked_up)
 	timer_label = $Control/Time_Left
 	penguin_label = $Control/Penguin_Counter
-	#func_peng_picked_up()
+	update_players_peng_count()
 
 func func_peng_picked_up():
 	peng_counter += 1
@@ -62,7 +62,9 @@ func update_players_peng_count():
 			Player_Peng4.show()
 		5:
 			Player_Peng5.show()
-		
+	
+	if GlobalRefs.quest_manager.peng_counter == GlobalRefs.quest_manager.win_condition:
+		GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuWin)
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

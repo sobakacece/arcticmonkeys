@@ -31,4 +31,7 @@ shape = SubResource("CylinderShape3D_08j0s")
 mesh = SubResource("TorusMesh_e2t4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_cg6hh")
 
+[node name="RayCast3D" type="RayCast3D" parent="Area3D"]
+target_position = Vector3(0, -50, 0)
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
