@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b107hpfpnqhki"]
+
+[ext_resource type="PackedScene" uid="uid://dutgh7ygmpwtc" path="res://nodes/player.tscn" id="1_h45bn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ev5eu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ton2m"]
+albedo_color = Color(0.435294, 0.576471, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7md87"]
+
+[node name="Planet" type="Node3D"]
+
+[node name="Planet_Body" type="StaticBody3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Planet_Body"]
+mesh = SubResource("SphereMesh_ev5eu")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ton2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet_Body"]
+shape = SubResource("SphereShape3D_7md87")
+
+[node name="Player" parent="." instance=ExtResource("1_h45bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 60.5425, 0)

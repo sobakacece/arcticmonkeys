@@ -1,11 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bg2tfhg80xcan"]
 
-[ext_resource type="Texture2D" uid="uid://b5xm7eo0582yj" path="res://assets/textures/AAA_MAP_ALBEDO_FULL.png" id="1_0xwxx"]
+[ext_resource type="Texture2D" uid="uid://cm1h6omqbw5p2" path="res://assets/textures/Map_Albedo_Unfiltered.png" id="1_w884u"]
 
 [resource]
 render_priority = 1
 transparency = 1
 depth_draw_mode = 1
 albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
-albedo_texture = ExtResource("1_0xwxx")
+albedo_texture = ExtResource("1_w884u")
 albedo_texture_force_srgb = true
+texture_filter = 1

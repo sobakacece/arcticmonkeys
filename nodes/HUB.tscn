@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf8xk1lg8r1na"]
+
+[ext_resource type="Script" path="res://scripts/hub.gd" id="1_mmn1v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y57is"]
+transparency = 1
+albedo_color = Color(1, 0.572549, 0, 1)
+metallic = 0.1
+rim_enabled = true
+rim_tint = 0.42
+
+[sub_resource type="TorusMesh" id="TorusMesh_hd6cm"]
+material = SubResource("StandardMaterial3D_y57is")
+inner_radius = 30.602
+outer_radius = 35.318
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0jsmb"]
+height = 20.0
+radius = 35.318
+
+[node name="Hub" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034935, -0.191093, 0.183109)
+visible = false
+mesh = SubResource("TorusMesh_hd6cm")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
+script = ExtResource("1_mmn1v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_0jsmb")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

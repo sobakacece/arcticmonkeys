@@ -6,7 +6,7 @@ var scene : PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalRefs.spawner=self
-	scene = load("res://assets/3D/peng_on_map.tscn")
+	scene = load("res://nodes/peng_on_map.tscn")
 	spawn_points = get_children()
 	spawn_amount = clamp(spawn_amount, 0, spawn_points.size())
 	spawn_points.shuffle()

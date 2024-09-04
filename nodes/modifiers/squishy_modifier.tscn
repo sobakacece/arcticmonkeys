@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baiqgbim76bgs"]
+
+[ext_resource type="Script" path="res://scripts/modifiers/squishy_modifier.gd" id="1_hkltx"]
+
+[node name="squishy_modifier" type="Node"]
+script = ExtResource("1_hkltx")

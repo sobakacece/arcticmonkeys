@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://drcprtrfvcbxh"]
+
+[ext_resource type="Script" path="res://nodes/surface_snap_on_start.gd" id="1_60411"]
+[ext_resource type="PackedScene" uid="uid://b81bx3oi8ewbs" path="res://nodes/peng.tscn" id="1_e5e7n"]
+[ext_resource type="Script" path="res://scripts/characters/peng__on_map.gd" id="2_wx6dv"]
+[ext_resource type="Material" uid="uid://wq7yriegjxhe" path="res://assets/3D/Materials/yellow.tres" id="4_uyh55"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_08j0s"]
+height = 0.881893
+radius = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8w0gj"]
+
+[node name="Peng_on_map" type="Node3D" groups=["collectable"]]
+script = ExtResource("1_60411")
+
+[node name="Peng" parent="." instance=ExtResource("1_e5e7n")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_wx6dv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468938, 0)
+shape = SubResource("CylinderShape3D_08j0s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.11631, 0)
+mesh = SubResource("CylinderMesh_8w0gj")
+surface_material_override/0 = ExtResource("4_uyh55")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -50, 0)
+collision_mask = 3
+hit_back_faces = false
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
