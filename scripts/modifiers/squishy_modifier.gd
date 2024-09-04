@@ -45,7 +45,6 @@ func _physics_process(delta: float):
 		var xyz_scale = Vector3(1.0 + squish_amount, 1.0 - squish_amount, 1.0 + squish_amount)
 
 		parent_rigidbody.scale = original_scale * xyz_scale
-		print("ACTIVE:", xyz_scale, impact_speed)
 
 		animation_time += delta
 
