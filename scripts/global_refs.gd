@@ -5,6 +5,7 @@ signal on_state_changed
 static var player_ref : Player
 static var quest_manager : QuestManager
 static var mouse_sensitivity : float = 0.01
+static var gamepad_sensitivity = 5
 static var start_position : Vector3 
 static var main_menu_ref : MainMenu
 static var camera_menu : Camera3D

@@ -71,7 +71,7 @@ func _input(event):
 		target_camera_rotation.y -= event.relative.x * GlobalRefs.mouse_sensitivity * rotation_speed_mod
 		#target_rotation.y = wrapf(target_rotation.y, 0, 360)
 		target_camera_rotation.x -= event.relative.y * GlobalRefs.mouse_sensitivity * rotation_speed_mod
-		target_camera_rotation.x = clamp(target_camera_rotation.x, deg_to_rad(camera_range_y_axis.x), deg_to_rad(camera_range_y_axis.y))
+		#target_camera_rotation.x = clamp(target_camera_rotation.x, deg_to_rad(camera_range_y_axis.x), deg_to_rad(camera_range_y_axis.y))
 		#print(target_rotation.x);
 	if Input.is_action_just_pressed("pause") && focused:
 		GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuPause)
@@ -79,6 +79,14 @@ func _input(event):
 
 		
 func _process(delta: float) -> void:
+		# Handle gamepad right stick for camera rotation
+	var right_stick_x = Input.get_action_strength("gamepad_look_right") - Input.get_action_strength("gamepad_look_left")
+	var right_stick_y = Input.get_action_strength("gamepad_look_down") - Input.get_action_strength("gamepad_look_up")
+	target_camera_rotation.y -= right_stick_x * GlobalRefs.gamepad_sensitivity * rotation_speed_mod * delta
+	target_camera_rotation.x -= right_stick_y * GlobalRefs.gamepad_sensitivity * rotation_speed_mod * delta
+	target_camera_rotation.x = clamp(target_camera_rotation.x, deg_to_rad(camera_range_y_axis.x), deg_to_rad(camera_range_y_axis.y))
+
+
 	smooth_rotation = smooth_rotation.lerp(target_camera_rotation, delta * rotation_weight)
 	smooth_rotation.x = clamp(smooth_rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	spring_arm.rotation = smooth_rotation
@@ -129,7 +137,7 @@ func _physics_process(delta: float) -> void:
 		#velocity += slope_process(delta) - gravity_vector  * delta
 	if focused:
 	# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_velocity
 			is_jumping = true
 			if !jump_timer:
