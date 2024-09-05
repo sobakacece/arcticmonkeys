@@ -97,9 +97,11 @@ func rotate_visuals(delta: float):
 	
 	visuals.rotation = smooth_rot_quat.get_euler()
 
-func snap_to_ground():
-	if ($RayCast3D.get_collision_point().distance_to(position) < snapping_distance && $Slope_check.is_colliding() && state_machine.current_state is not Jump_State):
-		position = $RayCast3D.get_collision_point()
+func check_snap_distance() -> bool:
+	return $RayCast3D.get_collision_point().distance_to(position) < snapping_distance && $Slope_check.is_colliding()
+		#position = $RayCast3D.get_collision_point()
+		#var target_position = $RayCast3D.get_collision_point()
+		#position = lerp(position, target_position, 0,5)
 #PROPERTIES
 func get_dash_boost() -> float:
 	if Input.is_action_just_pressed("dash") && !dash_timer:
