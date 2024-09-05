@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cm3eqducbskwy"]
 
-[ext_resource type="Script" path="res://scripts/quest_manager.gd" id="3_qy12e"]
+[ext_resource type="Script" path="res://scripts/general/quest_manager.gd" id="3_qy12e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8jmdp"]
 font_size = 74

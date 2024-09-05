@@ -21,15 +21,17 @@ var buffer2
 func _ready():
 	parent_rigidbody = get_parent()
 	original_scale = parent_rigidbody.scale
-	if typeof(parent_rigidbody) == typeof(CharacterBody2D):
-		parent_rigidbody.connect("landed", Callable(self, "_activate_jelly_effect"))
-	else:
+	if  parent_rigidbody is not Player:
 		parent_rigidbody.connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _on_body_entered(body: Node3D):
 	print("is_jelly_active")
 	if body.is_in_group("Ground"):
 		_activate_jelly_effect()
+
+func _on_state_changed(state : PlayerState):
+	if state is Landed:
+		_activate_jelly_effect()	
 
 func _activate_jelly_effect():
 	if not is_jelly_active:

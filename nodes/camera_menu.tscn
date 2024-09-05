@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6e56mk74ichh"]
+[gd_scene load_steps=9 format=3 uid="uid://c6e56mk74ichh"]
 
-[ext_resource type="Script" path="res://scripts/orbit_camera.gd" id="1_qs2gb"]
+[ext_resource type="Script" path="res://scripts/general/orbit_camera.gd" id="1_qs2gb"]
 [ext_resource type="Script" path="res://scripts/UI/button_start.gd" id="2_6xd5u"]
 [ext_resource type="Script" path="res://scripts/UI/sensitivity_slider.gd" id="2_l1q1a"]
 [ext_resource type="Script" path="res://scripts/UI/menu_states.gd" id="2_p306k"]
 [ext_resource type="FontFile" uid="uid://4vgkoctxsj2f" path="res://assets/ConcertOne-Regular.ttf" id="3_anel6"]
+[ext_resource type="Script" path="res://scripts/UI/restart_button.gd" id="5_cow4y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t4fkk"]
 font_size = 32
@@ -30,17 +31,10 @@ transform = Transform3D(-0.587785, -0.572061, 0.572062, 0, 0.707107, 0.707107, -
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("Pause_Button", "Start_Button", "Restart_Button")]
 process_mode = 3
-custom_minimum_size = Vector2(1080, 720)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 504.0
-offset_bottom = 396.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.996644)
@@ -51,16 +45,17 @@ Restart_Button = NodePath("VBoxContainer/RestartButton")
 
 [node name="MenuLabel" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.573
 anchor_right = 0.5
-offset_left = -527.0
-offset_top = 483.623
-offset_right = 598.0
-offset_bottom = 598.623
+anchor_bottom = 0.573
+offset_left = -562.5
+offset_top = 58.696
+offset_right = 562.5
+offset_bottom = 173.696
 grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
-pivot_offset = Vector2(300, 0)
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_anel6")
 label_settings = SubResource("LabelSettings_t4fkk")
 horizontal_alignment = 1
@@ -114,7 +109,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_anel6")
 theme_override_font_sizes/font_size = 40
 text = "RESTART"
-script = ExtResource("2_6xd5u")
+script = ExtResource("5_cow4y")
 
 [node name="Sens_Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2

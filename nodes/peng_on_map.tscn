@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://drcprtrfvcbxh"]
 
-[ext_resource type="Script" path="res://nodes/surface_snap_on_start.gd" id="1_60411"]
+[ext_resource type="Script" path="res://scripts/characters/surface_snap_on_start.gd" id="1_60411"]
 [ext_resource type="PackedScene" uid="uid://b81bx3oi8ewbs" path="res://nodes/peng.tscn" id="1_e5e7n"]
 [ext_resource type="Script" path="res://scripts/characters/peng__on_map.gd" id="2_wx6dv"]
 [ext_resource type="Material" uid="uid://wq7yriegjxhe" path="res://assets/3D/Materials/yellow.tres" id="4_uyh55"]
