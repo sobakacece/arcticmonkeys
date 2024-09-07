@@ -84,16 +84,16 @@ mass = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.2, 0)
 
 [node name="Jigglebone" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="1"]
-transform = Transform3D(-100, 1.76581e-05, 8.49915e-06, -1.39091e-06, -70.6992, 70.7221, 2.26493e-05, 70.7221, 70.6992, 134.715, 8.66951, 165.926)
+transform = Transform3D(-100, 1.76581e-05, 2.53867e-06, -7.35137e-06, -70.6993, 70.722, 1.07284e-05, 70.722, 70.6993, 134.715, 8.66951, 165.926)
 
 [node name="Jigglebone2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="2"]
-transform = Transform3D(100, -0.0702973, -0.0291673, -0.0291036, -70.7339, 70.6875, -0.0703204, -70.6875, -70.7339, 134.714, 8.66951, 165.137)
+transform = Transform3D(100, -0.0708099, -0.029218, -0.0294314, -70.7339, 70.6875, -0.0707197, -70.6874, -70.7339, 134.714, 8.66951, 165.137)
 
 [node name="Jigglebone3" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="3"]
-transform = Transform3D(100, -0.0124662, -0.0454619, 0.00586649, -92.3997, 38.24, -0.0467765, -38.2401, -92.3996, 134.715, 8.29563, 164.763)
+transform = Transform3D(100, -0.0181584, -0.0468239, 0.00113388, -92.3997, 38.2398, -0.0502098, -38.2398, -92.3997, 134.715, 8.29563, 164.763)
 
 [node name="Jigglebone4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="4"]
-transform = Transform3D(-100, -6.93812e-06, 1.00537e-05, 7.54979e-06, -92.3942, 38.2533, 1.07284e-05, 38.2533, 92.3942, 134.715, 8.29581, 166.299)
+transform = Transform3D(-100, 1.09433e-05, 4.09321e-06, -4.37114e-06, -92.3942, 38.2533, 1.07284e-05, 38.2533, 92.3942, 134.715, 8.29581, 166.299)
 
 [node name="Jigglebone5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="5"]
 transform = Transform3D(-100, 0.00173608, 0.0247699, 0.0017331, 100, 5.96155e-06, -0.0247669, 8.94092e-06, -100, 133.715, 9.37354, 165.532)
@@ -120,13 +120,13 @@ visible = false
 visible = false
 
 [node name="Hand_L_BoneAttachment3D" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="8"]
-transform = Transform3D(-2.38419e-07, -0.382533, -0.923942, 1, 5.96046e-08, -2.38419e-07, 1.19209e-07, -0.923942, 0.382533, -0.0076848, -3.77318e-09, 0.00878432)
+transform = Transform3D(-2.38419e-07, -0.382533, -0.923942, 1, -1.19209e-07, -1.78814e-07, 0, -0.923942, 0.382533, -0.0076848, -3.64024e-09, 0.00878431)
 
 [node name="Peng5" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_L_BoneAttachment3D" index="0"]
 visible = false
 
 [node name="Hand_R_BoneAttachment3D2" parent="Player/Visuals/Char/Char_Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.000467896, 0.382401, 0.923996, -1, 0.000124753, 0.000454724, 5.86212e-05, -0.923997, 0.3824, 0.00768297, 3.71532e-06, 0.00878249)
+transform = Transform3D(0.000502229, 0.382398, 0.923997, -1, 0.000181675, 0.000468343, 1.12951e-05, -0.923998, 0.382398, 0.00768297, 3.73693e-06, 0.00878249)
 
 [node name="Peng4" parent="Player/Visuals/Char/Char_Armature/Skeleton3D/Hand_R_BoneAttachment3D2" index="0"]
 visible = false
@@ -170,6 +170,12 @@ offset_right = 1.0
 offset_bottom = 99.0
 text = "0/5"
 
+[node name="Picked_UP" parent="Quest/AudioList" index="0"]
+attenuation_model = 3
+volume_db = -10.0
+unit_size = 1000.0
+playback_type = 1
+
 [node name="camera_menu" parent="." instance=ExtResource("9_d8pd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.631, 26.7973, 184.119)
 
@@ -178,31 +184,31 @@ script = ExtResource("10_o3mhp")
 spawn_amount = 6
 
 [node name="Marker3D" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.876, 13.1599, 14.1481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.876, 13.639, 14.1481)
 
 [node name="Marker3D2" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.687, 5.70025, 116.739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.687, 9.72305, 116.739)
 
 [node name="Marker3D3" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5681, 6.44052, 33.6348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5681, 7.21772, 33.6348)
 
 [node name="Marker3D4" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3657, 6.11306, 222.407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3657, 13.6276, 222.407)
 
 [node name="Marker3D5" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.717, 20.0416, 331.589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.717, 30.6526, 331.589)
 
 [node name="Marker3D6" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302.91, 11.8647, 21.12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302.91, 12.5112, 21.12)
 
 [node name="Marker3D7" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9819, 3.43689, 60.4357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9819, 5.47667, 60.4357)
 
 [node name="Marker3D8" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.273, 15.329, 233.478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.273, 22.3296, 233.478)
 
 [node name="Marker3D9" type="Marker3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.546, 2.14507, 199.983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.546, 8.36845, 199.983)
 
 [node name="Hub" parent="." instance=ExtResource("11_spda6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.715, 8.21738, 57.2973)

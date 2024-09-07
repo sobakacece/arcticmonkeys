@@ -64,6 +64,6 @@ func _physics_process(delta: float):
 			impact_speed = abs(buffer2.y)
 			
 func buffer_speed():
-	buffer2 = buffer
+	buffer2 = buffer1
 	buffer1 = buffer
 	buffer = velocity

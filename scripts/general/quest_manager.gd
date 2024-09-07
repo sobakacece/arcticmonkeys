@@ -17,6 +17,8 @@ signal peng_picked_up
 @export var Player_Peng4: Node3D
 @export var Player_Peng5: Node3D
 
+var picked_up_sound : AudioStreamPlayer3D
+
 var peng_counter = 0
 var State : GlobalRefs.GlobalStates
 var quest_timer : Timer
@@ -30,8 +32,11 @@ func _ready() -> void:
 	timer_label = $Control/Time_Left
 	penguin_label = $Control/Penguin_Counter
 	update_players_peng_count()
+	picked_up_sound = $AudioList/Picked_UP
 
 func func_peng_picked_up():
+	picked_up_sound.pitch_scale = 1 + float(peng_counter)/12
+	picked_up_sound.play()
 	peng_counter += 1
 	update_players_peng_count()
 

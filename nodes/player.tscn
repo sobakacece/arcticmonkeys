@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dutgh7ygmpwtc"]
+[gd_scene load_steps=23 format=3 uid="uid://dutgh7ygmpwtc"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_lukb3"]
 [ext_resource type="Script" path="res://scripts/characters/player_camera.gd" id="2_7i0ih"]
@@ -11,6 +11,11 @@
 [ext_resource type="Script" path="res://scripts/characters/state_machine/fall_state.gd" id="9_u257y"]
 [ext_resource type="Script" path="res://scripts/characters/state_machine/landed_state.gd" id="10_v621h"]
 [ext_resource type="Script" path="res://scripts/characters/state_machine/not_controlled_state.gd" id="11_8tylg"]
+[ext_resource type="Script" path="res://scripts/characters/player_audio_manager.gd" id="12_tn8ov"]
+[ext_resource type="AudioStream" uid="uid://cncw0ds1l6ajf" path="res://assets/audio/slide_loop.wav" id="13_r420e"]
+[ext_resource type="AudioStream" uid="uid://b3kbdh86wc78v" path="res://assets/audio/music_02.wav" id="14_sm8fm"]
+[ext_resource type="AudioStream" uid="uid://doxehunk2flxf" path="res://assets/audio/land.wav" id="15_fi53m"]
+[ext_resource type="AudioStream" uid="uid://7wtqo48l1tcj" path="res://assets/audio/jump.wav" id="15_ojgg0"]
 
 [sub_resource type="Curve" id="Curve_lyvwj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
@@ -122,3 +127,24 @@ script = ExtResource("11_8tylg")
 [node name="Squishy_Modifier" type="Node" parent="."]
 script = ExtResource("4_hj4y3")
 speed_divider = 30.0
+
+[node name="PlayerAudioManager" type="Node" parent="."]
+script = ExtResource("12_tn8ov")
+
+[node name="Slide_Loop" type="AudioStreamPlayer3D" parent="PlayerAudioManager"]
+stream = ExtResource("13_r420e")
+volume_db = 19.241
+
+[node name="Music_Loop" type="AudioStreamPlayer3D" parent="PlayerAudioManager"]
+stream = ExtResource("14_sm8fm")
+volume_db = 10.0
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="PlayerAudioManager"]
+stream = ExtResource("15_ojgg0")
+volume_db = 15.0
+pitch_scale = 1.1
+
+[node name="Land" type="AudioStreamPlayer3D" parent="PlayerAudioManager"]
+stream = ExtResource("15_fi53m")
+volume_db = 20.0

@@ -58,6 +58,8 @@ func _input(event):
 		GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuPause)	
 
 func _physics_process(delta: float) -> void:
+	buffer_speed()
+	
 	if state_machine.current_state is not Uncontrollable:
 		update_velocity_input(delta)
 		move_and_slide()
@@ -132,3 +134,15 @@ func get_normal():
 		return $RayCast3D.get_collision_normal()
 	else:
 		return Vector3.UP
+
+var buffer = Vector3.ZERO
+var buffer1 = Vector3.ZERO
+var buffer2 = Vector3.ZERO
+
+func buffer_speed():
+	buffer2 = buffer1
+	buffer1 = buffer
+	buffer = self.velocity
+
+func get_land_velocity():
+	return abs(buffer1.y)
