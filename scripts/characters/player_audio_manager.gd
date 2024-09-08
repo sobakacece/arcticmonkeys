@@ -28,7 +28,7 @@ func on_state_changed(new_state):
 		slide_loop.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	slide_loop.volume_db = player.velocity.length() - 30
+	slide_loop.volume_db = (player.velocity.length() + 5)/1.5 - 30
 	slide_loop.pitch_scale = 0.9 + player.velocity.length()/50
 	
 	music_loop.volume_db = 12 + player.velocity.length()/50

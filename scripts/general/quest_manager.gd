@@ -35,7 +35,6 @@ func _ready() -> void:
 	picked_up_sound = $AudioList/Picked_UP
 
 func func_peng_picked_up():
-	picked_up_sound.pitch_scale = 1 + float(peng_counter)/12
 	picked_up_sound.play()
 	peng_counter += 1
 	update_players_peng_count()
