@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm3eqducbskwy"]
+[gd_scene load_steps=4 format=3 uid="uid://cm3eqducbskwy"]
 
 [ext_resource type="AudioStream" uid="uid://b75yqfg1jek64" path="res://assets/audio/peng_picked_up.wav" id="2_de0r4"]
 [ext_resource type="Script" path="res://scripts/general/quest_manager.gd" id="3_qy12e"]
-[ext_resource type="AudioStream" uid="uid://c02hr7h5a8yot" path="res://assets/audio/peng_picked_up_02.wav" id="3_tquio"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8jmdp"]
 font_size = 74
@@ -54,10 +53,5 @@ vertical_alignment = 1
 
 [node name="Picked_UP" type="AudioStreamPlayer3D" parent="AudioList"]
 stream = ExtResource("2_de0r4")
-volume_db = 80.0
-playback_type = 2
-
-[node name="Picked_UP2" type="AudioStreamPlayer3D" parent="AudioList"]
-stream = ExtResource("3_tquio")
-volume_db = 80.0
-playback_type = 2
+attenuation_model = 3
+volume_db = -50.0
