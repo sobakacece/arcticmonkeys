@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6e56mk74ichh"]
+[gd_scene load_steps=10 format=3 uid="uid://c6e56mk74ichh"]
 
 [ext_resource type="Script" path="res://scripts/general/orbit_camera.gd" id="1_qs2gb"]
 [ext_resource type="Script" path="res://scripts/UI/button_start.gd" id="2_6xd5u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/UI/menu_states.gd" id="2_p306k"]
 [ext_resource type="FontFile" uid="uid://4vgkoctxsj2f" path="res://assets/ConcertOne-Regular.ttf" id="3_anel6"]
 [ext_resource type="Script" path="res://scripts/UI/restart_button.gd" id="5_cow4y"]
+[ext_resource type="Script" path="res://scripts/UI/music_slider.gd" id="7_axkjx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t4fkk"]
 font_size = 32
@@ -57,6 +58,7 @@ offset_bottom = 173.696
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_anel6")
+text = "asdasdasd"
 label_settings = SubResource("LabelSettings_t4fkk")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -127,3 +129,19 @@ max_value = 0.05
 step = 0.001
 value = 0.05
 script = ExtResource("2_l1q1a")
+
+[node name="Music_label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_anel6")
+text = "music volume"
+label_settings = SubResource("LabelSettings_g4mru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="HSlider" parent="Control/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+min_value = -25.0
+max_value = 25.0
+value = 10.0
+script = ExtResource("7_axkjx")

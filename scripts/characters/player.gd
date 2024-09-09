@@ -53,9 +53,7 @@ func _ready():
 	state_machine.state_changed.connect(func(state: PlayerState): $Squishy_Modifier._on_state_changed(state))
 	
 
-func _input(event):
-	if Input.is_action_just_pressed("pause"):
-		GlobalRefs._update_global_state(GlobalRefs.GlobalStates.MenuPause)	
+
 
 func _physics_process(delta: float) -> void:
 	buffer_speed()

@@ -5,12 +5,14 @@ signal global_state_changed(state : GlobalStates)
 static var player_ref : Player
 static var quest_manager : QuestManager
 static var mouse_sensitivity : float = 0.01
+static var music_volume : float = 0
 static var gamepad_sensitivity = 5
 static var start_position : Vector3 
 static var main_menu_ref : MainMenu
 static var camera_menu : Camera3D
 static var spawner : Spawner
 enum GlobalStates {Gameplay, MenuPause, MenuGameOver, MenuStart, MenuWin}
+var current_state : GlobalStates
 # Called when the node enters the scene tree for the first time.\\
 func _add_player_ref(player : Player) -> void:
 	player_ref = player
@@ -24,8 +26,17 @@ func _ready() -> void:
 func update_sense(value: float):
 	mouse_sensitivity = value
 
+func update_volume(value: float):
+	music_volume = value
+	if value == -25:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)
+		AudioServer.set_bus_volume_db(0, value)
+
 func _update_global_state(state: GlobalStates):
 	global_state_changed.emit(state)
+	current_state = state
 	match state:
 		GlobalStates.Gameplay:
 			player_ref.state_machine._initial_state_check()
