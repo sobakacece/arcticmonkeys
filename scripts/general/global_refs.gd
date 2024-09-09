@@ -66,3 +66,4 @@ func Restart():
 	quest_manager._reset_state()
 	player_ref.position = start_position
 	player_ref.velocity = Vector3.ZERO
+	player_ref.rotation = Vector3.ZERO
