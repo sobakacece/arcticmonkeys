@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		update_velocity_input(delta)
 		move_and_slide()
 			
-		if velocity.length() > 0.2:
+		if velocity.length() > 2:
 			rotate_visuals(delta)
 
 func update_velocity_input(delta : float):

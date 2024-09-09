@@ -21,7 +21,7 @@ func _input(event):
 		#print(target_rotation.x);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var right_stick_x = Input.get_action_strength("gamepad_look_right") - Input.get_action_strength("gamepad_look_left")
 	var right_stick_y = Input.get_action_strength("gamepad_look_down") - Input.get_action_strength("gamepad_look_up")
 	target_camera_rotation.y -= right_stick_x * GlobalRefs.gamepad_sensitivity * rotation_speed_mod * delta
@@ -32,4 +32,4 @@ func _process(delta: float) -> void:
 	smooth_rotation = smooth_rotation.lerp(target_camera_rotation, delta * rotation_weight)
 	smooth_rotation.x = clamp(smooth_rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	rotation = smooth_rotation
-	position = get_parent().position
+	position = lerp(position, get_parent().position, delta * 25)
